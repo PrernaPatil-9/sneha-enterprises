@@ -1,0 +1,26 @@
+/* Theme configuration */
+:root {
+  --primary: #FFB900;
+  --secondary: #E63946;
+  --accent: #8B1E2D;
+  --background: #FFFFFF;
+  --light-bg: #F8F8F8;
+  --dark-text: #1F1F1F;
+  --body-text: #555555;
+  --border: #EAEAEA;
+}
+
+/* Utility classes for theme colors */
+.text-primary { color: var(--primary); }
+.bg-primary { background-color: var(--primary); }
+.border-primary { border-color: var(--primary); }
+
+.text-secondary { color: var(--secondary); }
+.bg-secondary { background-color: var(--secondary); }
+
+.text-accent { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+
+.bg-light { background-color: var(--light-bg); }
+.text-body { color: var(--body-text); }
+.border-light { border-color: var(--border); }

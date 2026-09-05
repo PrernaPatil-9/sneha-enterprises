@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products | Sneha Enterprises — Tungsten Carbide Dies, Bush, Ring &amp; Wear Parts</title>
+<meta name="description" content="Browse Sneha Enterprises' full range of Tungsten Carbide Dies, Bush, Ring, Tablet Punches &amp; Dies, Wear Parts, Cold Forging Tools and Slitting Cutters, Pune.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { primary:'#FFB900', secondary:'#E63946', accent:'#8B1E2D', darktext:'#1F1F1F', bodytext:'#555555', bordercol:'#EAEAEA', lightbg:'#F8F8F8' },
+    fontFamily: { display:['Playfair Display','serif'], body:['Poppins','sans-serif'] }
+  } } };
+</script>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .filter-btn { font-size:.8rem; letter-spacing:.05em; text-transform:uppercase; padding:10px 22px; border:1px solid #EAEAEA; border-radius:2px; color:#555555; transition:all .3s ease; background:#fff; cursor:pointer; }
+  .filter-btn.active-filter, .filter-btn:hover { background:#8B1E2D; border-color:#8B1E2D; color:#fff; }
+
+  .product-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #1F1F1F;
+    cursor: pointer;
+  }
+  .product-item img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .product-item:hover img {
+    transform: scale(1.05);
+  }
+  
+  .product-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 28px 28px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.95));
+    color: #fff;
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+  .product-item:hover .product-overlay {
+    padding-bottom: 32px;
+    background: linear-gradient(transparent, rgba(139,30,45,0.85) 30%, rgba(139,30,45,0.95));
+  }
+  .product-overlay .badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFB900;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .product-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .product-overlay .view-link {
+    color: #FFB900;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    pointer-events: auto;
+    transition: all 0.3s;
+    letter-spacing: 0.03em;
+  }
+  .product-overlay .view-link:hover {
+    color: #fff;
+    gap: 10px;
+  }
+  .product-overlay .view-link i {
+    font-size: 0.7rem;
+    transition: transform 0.3s;
+  }
+  .product-overlay .view-link:hover i {
+    transform: translateX(4px);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== MODAL / OVERLAY CARD STYLES ===== */
+  .product-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: modalFadeIn 0.4s ease;
+  }
+
+  .product-modal.active {
+    display: flex;
+  }
+
+  @keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .modal-content {
+    background: #fff;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    border-radius: 12px;
+    overflow-y: auto;
+    position: relative;
+    padding: 40px 45px 45px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 1.8rem;
+    color: #555;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+  .modal-close:hover {
+    background: #f0f0f0;
+    color: #1F1F1F;
+    transform: rotate(90deg);
+  }
+
+  .modal-content .modal-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8B1E2D;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1F1F1F;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .modal-content .modal-price {
+    color: #8B1E2D;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  /* Modal Image - Smaller */
+  .modal-image-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f5f0ed;
+    border: 1px solid #EAEAEA;
+  }
+  .modal-image-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .modal-content .modal-description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .modal-content .modal-specs {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .modal-content .modal-specs h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8B1E2D;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .modal-content .modal-specs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+  .modal-content .modal-specs ul li {
+    font-size: 0.85rem;
+    color: #555;
+    position: relative;
+    padding-left: 16px;
+  }
+  .modal-content .modal-specs ul li::before {
+    content: "•";
+    color: #8B1E2D;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Additional Info Section */
+  .modal-additional-info {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .modal-additional-info h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8B1E2D;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .modal-additional-info .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.85rem;
+  }
+  .modal-additional-info .info-row:last-child {
+    border-bottom: none;
+  }
+  .modal-additional-info .info-label {
+    color: #777;
+  }
+  .modal-additional-info .info-value {
+    color: #333;
+    font-weight: 500;
+  }
+
+  .modal-cta {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #EAEAEA;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .modal-cta .btn-modal {
+    padding: 12px 30px;
+    background: #8B1E2D;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .modal-cta .btn-modal:hover {
+    background: #6a1622;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139,30,45,0.3);
+  }
+
+  .modal-cta .btn-modal-outline {
+    padding: 12px 30px;
+    background: transparent;
+    color: #8B1E2D;
+    border: 2px solid #8B1E2D;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .modal-cta .btn-modal-outline:hover {
+    background: #8B1E2D;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139,30,45,0.15);
+  }
+
+  .modal-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  .modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  .modal-content::-webkit-scrollbar-thumb {
+    background: #8B1E2D;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .modal-content {
+      padding: 30px 22px 32px;
+      max-height: 95vh;
+    }
+    .modal-content h2 {
+      font-size: 1.4rem;
+    }
+    .modal-image-container img {
+      height: 160px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .modal-cta {
+      flex-direction: column;
+    }
+    .modal-cta .btn-modal,
+    .modal-cta .btn-modal-outline {
+      text-align: center;
+      justify-content: center;
+    }
+    .modal-image-container img {
+      height: 140px;
+    }
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-body">
+
+<!-- ===== HEADER ===== -->
+<header id="site-header" class="relative overflow-visible">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center -my-1.5 md:-my-2 lg:-my-3">
+      <img
+        src="/images/logo.png"
+        alt="Sneha Enterprises"
+        class="h-12 md:h-14 lg:h-16 w-auto object-contain"
+      >
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex items-center gap-10">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <!-- <a href="services.html" class="nav-link">Services</a> -->
+      
+      <!-- Products Dropdown -->
+      <div class="relative group/products-dropdown">
+        <div class="flex items-center">
+          <a href="projects.html" class="nav-link" id="productsLink">Products</a>
+          <button class="ml-1 text-white/70 hover:text-white focus:outline-none" id="productsDropdownBtn">
+            <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="products-dropdown-menu absolute left-0 mt-2 w-80 bg-[#1a1a2e]/95 backdrop-blur-md rounded-xl shadow-2xl py-2 opacity-0 invisible transition-all duration-300 z-50 border border-white/10" id="productsDropdownMenu">
+          <a href="projects.html#tungsten-carbide-dies" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide Dies</a>
+          <a href="projects.html#tungsten-carbide-bush" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide Bush</a>
+          <a href="projects.html#tungsten-carbide-ring" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide Ring</a>
+          <a href="projects.html#tungsten-carbide" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide</a>
+          <a href="projects.html#tablet-punches-dies" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tablet Punches &amp; Dies</a>
+          <a href="projects.html#tungsten-carbide-wear-parts" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide Wear Parts</a>
+          <a href="projects.html#tungsten-carbide-cold-forging-tools" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">TUNGSTEN CARBIDE COLD FORGING TOOLS</a>
+        </div>
+      </div>
+      
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- CTA Button -->
+    <div class="hidden lg:block">
+      <a href="contact.html" class="btn btn-dark">
+        Get a Quote
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-toggle" class="lg:hidden text-white text-2xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+  </div>
+</header>
+
+<!-- ===== MOBILE MENU ===== -->
+<div id="mobile-menu">
+  <button id="menu-close" class="absolute top-8 right-8 text-white text-3xl">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="h-full flex flex-col items-center justify-center gap-8">
+
+    <a href="index.html" class="mb-6">
+      <img
+        src="/images/Logo-removebg-preview.png"
+        alt="Sneha Enterprises"
+        class="h-12 w-auto object-contain"
+      >
+    </a>
+
+    <a href="index.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">Home</a>
+    <a href="about.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">About</a>
+    <!-- <a href="services.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">Services</a> -->
+    
+    <!-- Mobile Products with dropdown -->
+    <div class="w-full max-w-xs text-center">
+      <div class="flex items-center justify-center gap-2">
+        <a href="projects.html" class="nav-link font-display text-3xl text-white lg:text-gray-800" id="mobileProductsLink">Products</a>
+        <button class="text-white/70 hover:text-white focus:outline-none" id="mobileProductsBtn">
+          <svg class="w-6 h-6 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="mobileProductsMenu" class="mt-2 space-y-2 max-h-0 overflow-hidden transition-all duration-300">
+        <a href="projects.html#tungsten-carbide-dies" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Dies</a>
+        <a href="projects.html#tungsten-carbide-bush" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Bush</a>
+        <a href="projects.html#tungsten-carbide-ring" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Ring</a>
+        <a href="projects.html#tungsten-carbide" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide</a>
+        <a href="projects.html#tablet-punches-dies" class="block text-center text-white/80 hover:text-white text-sm py-1">Tablet Punches &amp; Dies</a>
+        <a href="projects.html#tungsten-carbide-wear-parts" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Wear Parts</a>
+        <a href="projects.html#tungsten-carbide-cold-forging-tools" class="block text-center text-white/80 hover:text-white text-sm py-1">TUNGSTEN CARBIDE COLD FORGING TOOLS</a>
+      </div>
+    </div>
+    
+    <a href="contact.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">Contact</a>
+
+    <!-- Mobile CTA -->
+    <a href="contact.html" class="btn btn-dark mt-4">
+      Get a Quote
+    </a>
+
+  </div>
+</div>
+
+<!-- ===== BANNER ===== -->
+<section class="page-banner bg-cover bg-center" style="background-image:url('https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-500x500.jpg')">
+  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center">
+    <p class="dim-line justify-center mb-5"><span class="dim-num">—</span> Our Catalogue</p>
+    <h1 class="font-display">Products</h1>
+  </div>
+</section>
+
+<!-- Font Styles for Page Banner -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  .page-banner * {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .page-banner {
+    min-height: 50vh;
+    background-color: #1a1a1a;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(31,31,31,.82) 20%, rgba(31,31,31,.35) 100%);
+    z-index: 1;
+  }
+
+  .page-banner .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-banner .dim-line {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 400;
+    opacity: 0.85;
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .page-banner .dim-num {
+    color: #fbbf24;
+    margin-right: 0.5rem;
+    font-weight: 600;
+  }
+
+  .page-banner .font-display {
+    font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0;
+    font-size: 5rem;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+
+  .page-banner .font-display em {
+    color: #fbbf24;
+    font-style: italic;
+    font-weight: 400;
+    font-family: 'DM Serif Display', Georgia, serif;
+    text-shadow: 0 0 40px rgba(251, 191, 36, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .page-banner .font-display {
+      font-size: 3.2rem;
+    }
+    .page-banner .dim-line {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page-banner .font-display {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap justify-center gap-3 mb-16 section-fade" id="category-filters">
+      <button class="filter-btn active-filter" data-filter="all">All Products</button>
+      <button class="filter-btn" data-filter="tungsten-carbide-dies">Dies</button>
+      <button class="filter-btn" data-filter="tungsten-carbide-bush">Bush</button>
+      <button class="filter-btn" data-filter="tungsten-carbide-ring">Ring</button>
+      <button class="filter-btn" data-filter="tablet-punches-dies">Tablet Tooling</button>
+      <button class="filter-btn" data-filter="tungsten-carbide-wear-parts">Wear Parts</button>
+      <button class="filter-btn" data-filter="tungsten-carbide-cold-forging-tools">Cold Forging</button>
+      <button class="filter-btn" data-filter="slitting-cutter">Slitting Cutters</button>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+      <!-- Products rendered by JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCT MODAL ===== -->
+<div id="productModal" class="product-modal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <span class="modal-badge" id="modalBadge">Category</span>
+    <h2 id="modalTitle">Product Name</h2>
+    <p class="modal-price" id="modalPrice">₹ 1,920 / Piece</p>
+
+    <!-- Single Product Image - Smaller -->
+    <div class="modal-image-container">
+      <img id="modalImage" src="" alt="Product Image">
+    </div>
+
+    <p class="modal-description" id="modalDescription">Product description goes here.</p>
+
+    <div class="modal-specs" id="modalSpecs">
+      <h4>Specifications</h4>
+      <ul id="modalSpecsList"></ul>
+    </div>
+
+    <!-- Additional Product Information -->
+    <div class="modal-additional-info" id="modalAdditionalInfo">
+      <h4>Product Details</h4>
+      <div class="info-row">
+        <span class="info-label">Category</span>
+        <span class="info-value" id="infoCategory">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Product ID</span>
+        <span class="info-value" id="infoProductId">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Material</span>
+        <span class="info-value" id="infoMaterial">Tungsten Carbide</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Country of Origin</span>
+        <span class="info-value" id="infoOrigin">Made in India</span>
+      </div>
+    </div>
+
+    <div class="modal-cta">
+      <a href="contact.html" class="btn-modal">
+        <i class="fa-solid fa-envelope"></i> Get a Quote
+      </a>
+      <a href="services.html" class="btn-modal-outline">
+        <i class="fa-solid fa-arrow-right"></i> Explore Services
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:#1F1F1F">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 grid md:grid-cols-4 gap-12">
+    
+    <!-- Column 1: Brand & Social -->
+    <div>
+      <a href="index.html" class="flex items-center">
+        <img
+          src="/images/Logo-removebg-preview.png"
+          alt="Sneha Enterprises Logo"
+          class="h-[100px] w-auto"
+        >
+      </a>
+
+      <p class="mt-5 text-sm leading-7" style="color:#9a9a9a">
+        Sneha Enterprises manufactures Tungsten Carbide Dies, Bush, Ring and wear parts — engineered to industrial tolerance from quality-checked raw material.
+      </p>
+
+      <div class="flex gap-3 mt-6">
+        <a href="#" class="w-9 h-9 rounded-full flex items-center justify-center text-white/80 hover:text-[#1F1F1F] hover:bg-[#FFB900] border border-white/15 transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full flex items-center justify-center text-white/80 hover:text-[#1F1F1F] hover:bg-[#FFB900] border border-white/15 transition"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full flex items-center justify-center text-white/80 hover:text-[#1F1F1F] hover:bg-[#FFB900] border border-white/15 transition"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full flex items-center justify-center text-white/80 hover:text-[#1F1F1F] hover:bg-[#FFB900] border border-white/15 transition"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div>
+      <h4 class="text-white font-display text-lg mb-5 flex items-center gap-2">
+        <i class="fa-solid fa-link text-[#FFB900] text-sm"></i>
+        Quick Links
+      </h4>
+      <ul class="space-y-3 text-sm" style="color:#9a9a9a">
+        <li><a href="index.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> Home</a></li>
+        <li><a href="about.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> About Us</a></li>
+        <li><a href="services.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> Services</a></li>
+        <li><a href="products.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> Products</a></li>
+        <li><a href="contact.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Product Categories -->
+    <div>
+      <h4 class="text-white font-display text-lg mb-5 flex items-center gap-2">
+        <i class="fa-solid fa-tools text-[#FFB900] text-sm"></i>
+        Product Categories
+      </h4>
+      <ul class="space-y-3 text-sm" style="color:#9a9a9a">
+        <li><a href="products.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> Tungsten Carbide Dies</a></li>
+        <li><a href="products.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> Tungsten Carbide Bush</a></li>
+        <li><a href="products.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> Tungsten Carbide Ring</a></li>
+        <li><a href="products.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> Tablet Punches &amp; Dies</a></li>
+        <li><a href="products.html" class="hover:text-[#FFB900] transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-[#FFB900]"></i> Wear Parts</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact Info -->
+    <div>
+      <h4 class="text-white font-display text-lg mb-5 flex items-center gap-2">
+        <i class="fa-solid fa-address-card text-[#FFB900] text-sm"></i>
+        Contact Info
+      </h4>
+      <ul class="space-y-4 text-sm" style="color:#9a9a9a">
+        <li class="flex gap-3 items-start">
+          <i class="fa-solid fa-location-dot mt-1 text-[#FFB900] text-base"></i>
+          <span>Pune, Maharashtra, India</span>
+        </li>
+        <li class="flex gap-3 items-center">
+          <i class="fa-solid fa-phone text-[#FFB900] text-base"></i>
+          <a href="tel:+918048202874" class="hover:text-[#FFB900] transition">+91 80482 02874</a>
+        </li>
+        <li class="flex gap-3 items-center">
+          <i class="fa-solid fa-envelope text-[#FFB900] text-base"></i>
+          <a href="mailto:info@snehaenterprises.com" class="hover:text-[#FFB900] transition">info@snehaenterprises.com</a>
+        </li>
+        <li class="flex gap-3 items-center">
+          <i class="fa-solid fa-clock text-[#FFB900] text-base"></i>
+          <span>Mon-Sat: 9:00 AM - 7:00 PM</span>
+        </li>
+        <li class="flex gap-3 items-center">
+          <i class="fa-solid fa-whatsapp text-[#FFB900] text-base"></i>
+          <a href="https://wa.me/918048202874" class="hover:text-[#FFB900] transition">Chat on WhatsApp</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-white/10 py-6">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-xs" style="color:#7d7d7d">
+        <i class="fa-regular fa-copyright text-[#FFB900] mr-1"></i>
+        2026 Sneha Enterprises. All rights reserved.
+      </p>
+      <div class="flex gap-6 text-xs" style="color:#7d7d7d">
+        <a href="#" class="hover:text-[#FFB900] transition flex items-center gap-1">
+          <i class="fa-solid fa-shield-alt text-[#FFB900] text-[10px]"></i> Privacy Policy
+        </a>
+        <a href="#" class="hover:text-[#FFB900] transition flex items-center gap-1">
+          <i class="fa-solid fa-file-contract text-[#FFB900] text-[10px]"></i> Terms of Service
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="whatsapp-float" href="https://wa.me/918048202874" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i><svg width="52" height="52" viewBox="0 0 52 52"><circle cx="26" cy="26" r="23"></circle></svg></button>
+
+<script>
+  // ===== PRODUCT DATA =====
+  const SNEHA_PRODUCT_CATEGORIES = [
+    {
+      id: "tungsten-carbide-dies",
+      name: "Tungsten Carbide Dies",
+      count: 21,
+      products: [
+        { id: "tc-die-19664140555", name: "Tungsten Carbide Die", price: "₹ 1,920 / Piece", image: "/images/p1.webp", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Country of Origin: Made in India"], description: "A best-fit collection of Tungsten Carbide Dies catering to precise customer specifications. Safe, easy to use, compact and tamper proof with leak-proof packaging at an economical rate." },
+        { id: "tc-die-21143474033", name: "Tungsten Carbide Die", price: "₹ 2,960 / Piece", image: "/assets/images/hp2.webp", specs: ["Material: Tungsten Carbide", "Country of Origin: Made in India"], description: "Offered by our vastly experienced team in this domain." },
+        { id: "tc-sizing-die-19632949962", name: "Tungsten Carbide Sizing Die", price: "₹ 2,630 / Piece", image: "/assets/images/hp3.webp", specs: ["Color: Silver", "Material: Tungsten Carbide", "Surface Finishing: Gloss", "Country of Origin: Made in India"], description: "Tungsten carbide dies are the foremost choice in wire-industry drawing equipment when an economical option is desired over better wear resistance and wire surface finish." },
+        { id: "tc-dies-21417584697", name: "Tungsten Carbide Dies", price: "₹ 3,200 / Piece", image: "/assets/images/hp4.jpg", specs: ["Bore Diameter: All sizes available", "Usage/Application: Industrial", "Color: Steel", "Country of Origin: Made in India"], description: "Manufactured, exported and supplied with an expert team, this optimum quality CNC wire cut component range is used in various cutting operations across industries." },
+        { id: "tc-dies-21057229055", name: "Tungsten Carbide Dies", price: "₹ 2,630 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-125x125.jpg", specs: ["Bore Diameter: More than 100 mm", "Usage/Application: Industrial", "Hardness: Above 80 HRC", "Material: Stainless Steel"], description: "One of the prominent manufacturers and exporters of a wide range of best quality Tungsten Carbide Wear Parts, established in the year 2005." },
+        { id: "tc-die-19664168997", name: "Tungsten Carbide Die", price: "₹ 2,200 / Piece", image: "https://4.imimg.com/data4/KC/YF/ANDROID-36451235/product-125x125.jpeg", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Color: Silver"], description: "Part of our prominent range of best quality Tungsten Carbide Wear Parts." },
+        { id: "tc-extrusion-dies-23022287648", name: "Tungsten Carbide Extrusion Dies", price: "₹ 3,500 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441579385/RU/QT/DI/36451235/tungsten-carbide-extrusion-dies-125x125.jpg", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Color: Silver"], description: "Tungsten carbide wire drawing dies are tools with highly-polished, specially-shaped holes through which wire is drawn to reduce its diameter." },
+        { id: "tc-dies-18996731973", name: "Tungsten Carbide Dies", price: "₹ 2,600 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-125x125.jpg", specs: ["Location: Off Site", "Machine Type: Semi Automatic"], description: "Leading supplier of Tungsten Carbide Dies, dealing all over India and abroad. High-performance forming tools known for exceptional hardness, wear resistance and thermal stability." },
+        { id: "tc-dies-18749959733", name: "Tungsten Carbide Dies", price: "₹ 2,590 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2023/4/303671698/BH/US/QA/36451235/tungsten-carbide-dies-125x125.png", specs: ["Country of Origin: Made in India"], description: "Precision tungsten carbide dies manufactured to customer specification." },
+        { id: "tc-dies-19401448373", name: "Tungsten Carbide Dies", price: "₹ 2,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441410658/WX/QU/VL/36451235/tungsten-carbide-dies-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Precision tungsten carbide dies manufactured to customer specification." }
+      ]
+    },
+    {
+      id: "tungsten-carbide-bush",
+      name: "Tungsten Carbide Bush",
+      count: 12,
+      products: [
+        { id: "carbide-guide-bush-19384103212", name: "Carbide Guide Bush", price: "₹ 1,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441426138/ML/FT/AQ/36451235/carbide-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Precision carbide guide bush fabricated as per client drawings and specifications." },
+        { id: "tc-guide-bush-22973532448", name: "Tungsten Carbide Guide Bush", price: "₹ 1,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2020/12/HH/JM/ZC/36451235/tc-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Guide bush manufactured to industrial tolerance standards." },
+        { id: "tc-bush-23022371912", name: "Tungsten Carbide Bush", price: "₹ 1,320 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441580805/WJ/CD/DX/36451235/carbide-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Manufactured with quality raw material and stringent quality checks." },
+        { id: "carbide-bush-19383602548", name: "Carbide Bush", price: "₹ 800 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441441241/GQ/CB/XJ/36451235/carbide-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Economical carbide bush for general industrial tooling requirements." }
+      ]
+    },
+    {
+      id: "tungsten-carbide-ring",
+      name: "Tungsten Carbide Ring",
+      count: 8,
+      products: [
+        { id: "tc-ring-16471587548", name: "Tungsten Carbide Ring", price: "₹ 1,620 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441423412/TP/QO/LZ/36451235/tungsten-carbide-ring-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Manufactured with tensity, resistance and durability tested as per industrial parameters." },
+        { id: "tc-wear-ring-19383918391", name: "Tungsten Carbide Wear Ring", price: "₹ 1,320 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441425500/HO/BM/XF/36451235/tungsten-carbide-wear-ring-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Engineered for high wear-resistance in industrial applications." },
+        { id: "tc-ring-19465925330", name: "Tungsten Carbide Ring", price: "₹ 850 / Piece", image: "https://5.imimg.com/data5/OF/KQ/MY-36451235/tungsten-carbide-ring-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Manufactured to precise industrial specification." }
+      ]
+    },
+    {
+      id: "tablet-punches-dies",
+      name: "Tablet Punches & Dies",
+      count: 4,
+      products: [
+        { id: "tc-tablet-dies-23022343673", name: "T C Tablet Dies", price: "₹ 1,150 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441598408/RJ/MO/KK/36451235/t-c-tablet-dies-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Tablet compression dies manufactured to pharmaceutical industry tolerances." },
+        { id: "tc-pharma-dies-23022330091", name: "TC Pharmaceutical Dies", price: "₹ 1,230 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441578187/MD/XX/JM/36451235/tc-pharmaceutical-dies-125x125.png", specs: ["Country of Origin: Made in India"], description: "Pharmaceutical grade dies manufactured with stringent quality checks." },
+        { id: "tc-bush-22973540512", name: "T C Bush", price: "₹ 2,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2020/12/NF/QF/XQ/36451235/tc-tablet-die-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Precision bush for tablet compression tooling." },
+        { id: "tc-tablet-dies-punch-23022317762", name: "TC Tablet Dies and Punch", price: "₹ 2,560 / Set", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441407588/KI/AT/AJ/36451235/tc-tablet-dies-and-punch-125x125.png", specs: ["Country of Origin: Made in India"], description: "Matched die and punch set for tablet compression as per your drawings." }
+      ]
+    },
+    {
+      id: "tungsten-carbide-wear-parts",
+      name: "Tungsten Carbide Wear Parts",
+      count: 5,
+      products: [
+        { id: "tc-nozzle-22060640155", name: "Tungsten Carbide Nozzle", price: "₹ 4,500 / Piece", image: "https://5.imimg.com/data5/LM/NI/RV/SELLER-36451235/tungsten-carbiden-valve-125x125.jpeg", specs: ["Country of Origin: Made in India"], description: "Manufactured for demanding industrial wear applications." },
+        { id: "tc-seal-rings-21143481988", name: "Tungsten Carbide Seal Rings", price: "₹ 2,150 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441424796/HK/LE/QI/36451235/tungsten-carbide-seal-rings-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Seal rings manufactured with rigorous quality control." },
+        { id: "tc-wear-parts-23174775130", name: "Tungsten Carbide Wear Parts", price: "₹ 3,450 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441428604/FE/BI/AK/36451235/tungsten-carbide-wear-parts-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Wide range of best quality wear parts offered at market leading prices." }
+      ]
+    },
+    {
+      id: "tungsten-carbide-cold-forging-tools",
+      name: "TUNGSTEN CARBIDE COLD FORGING TOOLS",
+      count: 3,
+      products: [
+        { id: "tc-seal-ring-23107088397", name: "T C SEAL RING", price: "₹ 2,150 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441577668/QH/NZ/XT/36451235/cold-forging-tools-125x125.png", specs: ["Country of Origin: Made in India"], description: "Seal ring designed for cold forging tooling applications." },
+        { id: "cold-forming-tooling-23107093355", name: "Cold Forming Tooling", price: "₹ 2,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441414984/JF/QY/ZU/36451235/cold-forming-tooling-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Tooling manufactured for cold forming operations." },
+        { id: "cold-forging-tools-23107097197", name: "Cold Forging Tools", price: "₹ 1,260 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2025/5/512199014/IS/SN/UC/36451235/cold-forging-tools-125x125.webp", specs: ["Country of Origin: Made in India"], description: "Durable cold forging tools built for industrial production lines." }
+      ]
+    },
+    {
+      id: "slitting-cutter",
+      name: "Slitting Cutter",
+      count: 2,
+      products: [
+        { id: "slitting-cutter-27098163691", name: "Slitting Cutter", price: "₹ 2,030 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441418296/DR/SC/PS/36451235/slitting-cutter-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Precision slitting cutter manufactured for industrial cutting operations." },
+        { id: "carbide-slitting-cutter-27098179012", name: "Carbide Slitting Cutter", price: "₹ 2,500 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441428222/GW/YL/WH/36451235/carbide-slitting-cutter-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Carbide-tipped slitting cutter built for durability under continuous use." }
+      ]
+    }
+  ];
+
+  const SNEHA_ALL_PRODUCTS = SNEHA_PRODUCT_CATEGORIES.flatMap((cat) =>
+    cat.products.map((p) => ({ ...p, categoryId: cat.id, categoryName: cat.name }))
+  );
+
+  // ===== PAGE RENDER LOGIC =====
+  document.addEventListener('DOMContentLoaded', function() {
+    const productGrid = document.getElementById('product-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    let currentFilter = 'all';
+
+    function getBetterImageUrl(url) {
+      if (!url) return '';
+      return url
+        .replace(/125x125/g, '400x400')
+        .replace(/120x120/g, '400x400')
+        .replace(/-125x125/g, '-400x400')
+        .replace(/small/g, 'large')
+        .replace(/thumb/g, 'original');
+    }
+
+    function renderProducts(categoryId) {
+      let products = SNEHA_ALL_PRODUCTS;
+      if (categoryId !== 'all') {
+        products = SNEHA_ALL_PRODUCTS.filter(p => p.categoryId === categoryId);
+      }
+
+      if (products.length === 0) {
+        productGrid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">No products found in this category.</div>`;
+        return;
+      }
+
+      productGrid.innerHTML = products.map((p, index) => {
+        const imgSrc = getBetterImageUrl(p.image) || 'https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-400x400.jpg';
+        return `<div class="product-item" data-category="${p.categoryId}" data-product-id="${p.id}" style="animation-delay:${index * 0.05}s">
+          <img src="${imgSrc}" alt="${p.name}" loading="lazy" onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-400x400.jpg'">
+          <div class="product-overlay">
+            <span class="badge">${p.categoryName}</span>
+            <h3>${p.name}</h3>
+            <a href="#" class="view-link" data-product-id="${p.id}">View Details <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>`;
+      }).join('');
+
+      // Attach click events to view links
+      document.querySelectorAll('.view-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const productId = this.getAttribute('data-product-id');
+          const product = SNEHA_ALL_PRODUCTS.find(p => p.id === productId);
+          if (product) openModal(product);
+        });
+      });
+
+      // Animation effect
+      document.querySelectorAll('.product-item').forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          el.style.transition = 'all 0.5s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 100 + i * 80);
+      });
+    }
+
+    // Filter functionality
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        filterButtons.forEach(btn => btn.classList.remove('active-filter'));
+        this.classList.add('active-filter');
+        currentFilter = this.getAttribute('data-filter');
+        renderProducts(currentFilter);
+      });
+    });
+
+    // ===== MODAL LOGIC =====
+    const modal = document.getElementById('productModal');
+    const modalClose = document.getElementById('modalClose');
+
+    function openModal(product) {
+      const imgSrc = getBetterImageUrl(product.image) || 'https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-400x400.jpg';
+      
+      document.getElementById('modalBadge').textContent = product.categoryName || 'Product';
+      document.getElementById('modalTitle').textContent = product.name;
+      document.getElementById('modalPrice').textContent = product.price || 'Price on Request';
+      document.getElementById('modalImage').src = imgSrc;
+      document.getElementById('modalImage').alt = product.name;
+      document.getElementById('modalDescription').textContent = product.description || 'High-quality tungsten carbide product manufactured to industrial standards.';
+
+      // Specs
+      const specsList = document.getElementById('modalSpecsList');
+      specsList.innerHTML = '';
+      if (product.specs && product.specs.length > 0) {
+        document.getElementById('modalSpecs').style.display = 'block';
+        product.specs.forEach(spec => {
+          const li = document.createElement('li');
+          li.textContent = spec;
+          specsList.appendChild(li);
+        });
+      } else {
+        document.getElementById('modalSpecs').style.display = 'none';
+      }
+
+      // Additional Info
+      document.getElementById('infoCategory').textContent = product.categoryName || '-';
+      document.getElementById('infoProductId').textContent = product.id || '-';
+      
+      // Extract material from specs if available
+      let material = 'Tungsten Carbide';
+      let origin = 'Made in India';
+      if (product.specs && product.specs.length > 0) {
+        product.specs.forEach(spec => {
+          if (spec.toLowerCase().includes('material')) {
+            const parts = spec.split(':');
+            if (parts.length > 1) material = parts[1].trim();
+          }
+          if (spec.toLowerCase().includes('origin')) {
+            const parts = spec.split(':');
+            if (parts.length > 1) origin = parts[1].trim();
+          }
+        });
+      }
+      document.getElementById('infoMaterial').textContent = material;
+      document.getElementById('infoOrigin').textContent = origin;
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (modal.classList.contains('active')) {
+        if (e.key === 'Escape') closeModal();
+      }
+    });
+
+    // Initialize - show all products
+    renderProducts('all');
+  });
+</script>
+
+<script src="js/main.js"></script>
+<script src="js/animation.js"></script>
+</body>
+</html>

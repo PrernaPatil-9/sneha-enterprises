@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Sneha Enterprises, Pune — Tungsten Carbide Manufacturer</title>
+<meta name="description" content="Established in 2005 in Pune, Maharashtra, Sneha Enterprises is a manufacturer and exporter of Tungsten Carbide Wear Parts, dies, bush and rings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { primary:'#FFB900', secondary:'#E63946', accent:'#8B1E2D', darktext:'#1F1F1F', bodytext:'#555555', bordercol:'#EAEAEA', lightbg:'#F8F8F8' },
+    fontFamily: { display:['Playfair Display','serif'], body:['Poppins','sans-serif'] }
+  } } };
+</script>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-body">
+
+<!-- ===== HEADER ===== -->
+<header id="site-header" class="relative overflow-visible">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center -my-1.5 md:-my-2 lg:-my-3">
+      <img
+        src="/images/logo.png"
+        alt="Sneha Enterprises"
+        class="h-12 md:h-14 lg:h-16 w-auto object-contain"
+      >
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex items-center gap-10">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <!-- <a href="services.html" class="nav-link">Services</a> -->
+      
+      <!-- Products Dropdown -->
+      <div class="relative group/products-dropdown">
+        <div class="flex items-center">
+          <a href="projects.html" class="nav-link" id="productsLink">Products</a>
+          <button class="ml-1 text-white/70 hover:text-white focus:outline-none" id="productsDropdownBtn">
+            <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="products-dropdown-menu absolute left-0 mt-2 w-80 bg-[#1a1a2e]/95 backdrop-blur-md rounded-xl shadow-2xl py-2 opacity-0 invisible transition-all duration-300 z-50 border border-white/10" id="productsDropdownMenu">
+          <a href="projects.html#tungsten-carbide-dies" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide Dies</a>
+          <a href="projects.html#tungsten-carbide-bush" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide Bush</a>
+          <a href="projects.html#tungsten-carbide-ring" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide Ring</a>
+          <a href="projects.html#tungsten-carbide" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide</a>
+          <a href="projects.html#tablet-punches-dies" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tablet Punches &amp; Dies</a>
+          <a href="projects.html#tungsten-carbide-wear-parts" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">Tungsten Carbide Wear Parts</a>
+          <a href="projects.html#tungsten-carbide-cold-forging-tools" class="block px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">TUNGSTEN CARBIDE COLD FORGING TOOLS</a>
+        </div>
+      </div>
+      
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- CTA Button -->
+    <div class="hidden lg:block">
+      <a href="contact.html" class="btn btn-dark">
+        Get a Quote
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-toggle" class="lg:hidden text-white text-2xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+  </div>
+</header>
+
+<!-- ===== MOBILE MENU ===== -->
+<div id="mobile-menu">
+  <button id="menu-close" class="absolute top-8 right-8 text-white text-3xl">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="h-full flex flex-col items-center justify-center gap-8">
+
+    <a href="index.html" class="mb-6">
+      <img
+        src="/images/Logo-removebg-preview.png"
+        alt="Sneha Enterprises"
+        class="h-12 w-auto object-contain"
+      >
+    </a>
+
+    <a href="index.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">Home</a>
+    <a href="about.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">About</a>
+    <!-- <a href="services.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">Services</a> -->
+    
+    <!-- Mobile Products with dropdown -->
+    <div class="w-full max-w-xs text-center">
+      <div class="flex items-center justify-center gap-2">
+        <a href="projects.html" class="nav-link font-display text-3xl text-white lg:text-gray-800" id="mobileProductsLink">Products</a>
+        <button class="text-white/70 hover:text-white focus:outline-none" id="mobileProductsBtn">
+          <svg class="w-6 h-6 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="mobileProductsMenu" class="mt-2 space-y-2 max-h-0 overflow-hidden transition-all duration-300">
+        <a href="projects.html#tungsten-carbide-dies" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Dies</a>
+        <a href="projects.html#tungsten-carbide-bush" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Bush</a>
+        <a href="projects.html#tungsten-carbide-ring" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Ring</a>
+        <a href="projects.html#tungsten-carbide" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide</a>
+        <a href="projects.html#tablet-punches-dies" class="block text-center text-white/80 hover:text-white text-sm py-1">Tablet Punches &amp; Dies</a>
+        <a href="projects.html#tungsten-carbide-wear-parts" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Wear Parts</a>
+        <a href="projects.html#tungsten-carbide-cold-forging-tools" class="block text-center text-white/80 hover:text-white text-sm py-1">TUNGSTEN CARBIDE COLD FORGING TOOLS</a>
+      </div>
+    </div>
+    
+    <a href="contact.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">Contact</a>
+
+    <!-- Mobile CTA -->
+    <a href="contact.html" class="btn btn-dark mt-4">
+      Get a Quote
+    </a>
+
+  </div>
+</div>
+
+<!-- ===== PAGE BANNER ===== -->
+<section class="page-banner bg-cover bg-center" style="background-image:url('https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-500x500.jpg')">
+  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center">
+    <p class="dim-line justify-center mb-5"><span class="dim-num">—</span> About The Company</p>
+    <h1 class="font-display">Precision Tungsten Carbide<br> <em>Since 2005</em></h1>
+  </div>
+</section>
+
+<!-- Font Styles for Page Banner -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap');
+
+  .page-banner * {
+    font-family: 'Oswald', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .page-banner {
+    min-height: 50vh;
+    background-color: #1a1a1a;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(31,31,31,.82) 20%, rgba(31,31,31,.35) 100%);
+    z-index: 1;
+  }
+
+  .page-banner .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-banner .dim-line {
+    font-size: 0.9rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-weight: 300;
+    opacity: 0.9;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .page-banner .dim-num {
+    color: #fbbf24;
+    margin-right: 0.5rem;
+    font-weight: 600;
+  }
+
+  .page-banner .font-display {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0;
+    font-size: 5rem;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+
+  .page-banner .font-display em {
+    color: #fbbf24;
+    font-style: italic;
+    font-weight: 800;
+    font-family: 'Playfair Display', Georgia, serif;
+    text-shadow: 0 0 40px rgba(251, 191, 36, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .page-banner .font-display {
+      font-size: 3.2rem;
+    }
+    .page-banner .dim-line {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page-banner .font-display {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<!-- ===== COMPANY OVERVIEW ===== -->
+<section class="py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal-left dim-corner">
+      <img src="https://5.imimg.com/data5/SELLER/Default/2024/8/441426138/ML/FT/AQ/36451235/carbide-bush-500x500.jpg" class="w-full h-[540px] object-cover rounded-sm" alt="Tungsten Carbide Bush manufactured by Sneha Enterprises">
+    </div>
+    <div class="reveal-up">
+      <p class="dim-line mb-5"><span class="dim-num">01</span> Company Overview</p>
+      <h2 class="font-display text-4xl md:text-5xl mb-6 leading-tight">Precision tooling, built to industrial standards.</h2>
+      <p class="leading-8 mb-5">Established in the year 2005, Sneha Enterprises emerged as one of the prominent manufacturers and exporters of a wide range of best quality Tungsten Carbide Wear Parts. The offered range is made available to customers at a comprehensive and market-leading price range, fabricated by our professionals out of raw material as per client requirements.</p>
+      <p class="leading-8">Our range includes Tungsten Carbide Draw Dies, Tungsten Carbide Pointing Dies, Carbide Cold Heading Dies, Carbide Extrusion Dies, Heading Dies, Carbide Plug, Tablet Compression Dies, Guide Bush and Jig Bush — manufactured as per your drawings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISION / MISSION ===== -->
+<section class="py-28 bg-lightbg">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-8 stagger-group">
+    <div class="stagger-item bg-white p-12 border border-bordercol rounded-sm dim-corner">
+      <i class="fa-solid fa-eye text-3xl text-secondary mb-6"></i>
+      <h3 class="font-display text-2xl mb-4">Our Vision</h3>
+      <p class="leading-8">To be the most trusted manufacturer of tungsten carbide wear parts in India, delivering precision tooling that exceeds industrial standards and client expectations.</p>
+    </div>
+    <div class="stagger-item bg-white p-12 border border-bordercol rounded-sm dim-corner">
+      <i class="fa-solid fa-bullseye text-3xl text-secondary mb-6"></i>
+      <h3 class="font-display text-2xl mb-4">Our Mission</h3>
+      <p class="leading-8">To deliver high-quality tungsten carbide products fabricated to client specifications, with stringent quality checks and on-time delivery to a growing client base.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section class="py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-2xl mx-auto mb-16 section-fade">
+      <p class="dim-line justify-center mb-5"><span class="dim-num">02</span> Track Record</p>
+      <h2 class="font-display text-4xl md:text-5xl">Our Experience</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 stagger-group text-center">
+      <div class="stagger-item card-counter"><p class="num"><span class="counter" data-count="15">0</span>+</p><p class="text-sm uppercase tracking-widest mt-2">Years in Business</p></div>
+      <div class="stagger-item card-counter"><p class="num"><span class="counter" data-count="1000">0</span>+</p><p class="text-sm uppercase tracking-widest mt-2">Products Manufactured</p></div>
+      <div class="stagger-item card-counter"><p class="num">4.8<span class="text-primary">★</span></p><p class="text-sm uppercase tracking-widest mt-2">Client Rating</p></div>
+      <div class="stagger-item card-counter"><p class="num"><span class="counter" data-count="32">0</span>+</p><p class="text-sm uppercase tracking-widest mt-2">Reviews on IndiaMART</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCT RANGE ===== -->
+<section class="py-28 bg-lightbg">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal-up order-2 lg:order-1">
+      <p class="dim-line mb-5"><span class="dim-num">03</span> Our Product Range</p>
+      <h2 class="font-display text-4xl md:text-5xl mb-6 leading-tight">Quality checked, delivered on time.</h2>
+      <p class="leading-8 mb-8">Our team of qualified professionals fabricates these products to industrial standards with complete preference given to client specification. Stringent quality checks are conducted on tensity, resistance and durability parameters across every product category.</p>
+      <div class="space-y-6">
+        <div class="flex gap-5"><span class="font-display text-2xl text-primary">01</span><div><h4 class="font-semibold text-darktext mb-1">Tungsten Carbide Dies</h4><p class="text-sm">Draw dies, pointing dies, cold heading dies, extrusion dies and forming dies.</p></div></div>
+        <div class="flex gap-5"><span class="font-display text-2xl text-primary">02</span><div><h4 class="font-semibold text-darktext mb-1">Bush &amp; Guide Products</h4><p class="text-sm">Guide bush, jig bush and wear-resistant bush for precision applications.</p></div></div>
+        <div class="flex gap-5"><span class="font-display text-2xl text-primary">03</span><div><h4 class="font-semibold text-darktext mb-1">Custom Fabrication</h4><p class="text-sm">Tablet compression dies, carbide plug and wear parts fabricated to your drawings.</p></div></div>
+      </div>
+    </div>
+    <div class="reveal-right order-1 lg:order-2 dim-corner">
+      <img src="https://5.imimg.com/data5/SELLER/Default/2024/8/441423412/TP/QO/LZ/36451235/tungsten-carbide-ring-500x500.jpg" class="w-full h-[540px] object-cover rounded-sm" alt="Tungsten Carbide Ring">
+    </div>
+  </div>
+</section>
+
+<!-- ===== CORE VALUES ===== -->
+<section class="py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-2xl mx-auto mb-16 section-fade">
+      <p class="dim-line justify-center mb-5"><span class="dim-num">04</span> What Guides Us</p>
+      <h2 class="font-display text-4xl md:text-5xl">Core Values</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-group">
+      <div class="stagger-item text-center p-8">
+        <div class="icon-wrap mx-auto mb-5"><i class="fa-solid fa-industry"></i></div>
+        <h3 class="font-display text-lg mb-3">Quality First</h3>
+        <p class="text-sm leading-7">Stringent quality checks on tensity, resistance and durability across every product category.</p>
+      </div>
+      <div class="stagger-item text-center p-8">
+        <div class="icon-wrap mx-auto mb-5"><i class="fa-solid fa-pencil-ruler"></i></div>
+        <h3 class="font-display text-lg mb-3">Precision Fabrication</h3>
+        <p class="text-sm leading-7">Products fabricated to client drawings and industrial standards with complete preference to specifications.</p>
+      </div>
+      <div class="stagger-item text-center p-8">
+        <div class="icon-wrap mx-auto mb-5"><i class="fa-solid fa-clock"></i></div>
+        <h3 class="font-display text-lg mb-3">Timely Delivery</h3>
+        <p class="text-sm leading-7">Committed to on-time delivery to a growing client base across India and international markets.</p>
+      </div>
+      <div class="stagger-item text-center p-8">
+        <div class="icon-wrap mx-auto mb-5"><i class="fa-solid fa-handshake"></i></div>
+        <h3 class="font-display text-lg mb-3">Client Trust</h3>
+        <p class="text-sm leading-7">Building long-term relationships through quality products and reliable service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="py-28 bg-lightbg">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal-left dim-corner">
+      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1000&q=80" class="w-full h-[500px] object-cover rounded-sm" alt="Precision manufacturing">
+    </div>
+    <div class="reveal-up">
+      <p class="dim-line mb-5"><span class="dim-num">05</span> Why Choose Us</p>
+      <h2 class="font-display text-4xl md:text-5xl mb-8 leading-tight">Quality products from a trusted manufacturer.</h2>
+      <ul class="space-y-5">
+        <li class="flex gap-4"><i class="fa-solid fa-check text-primary mt-1"></i><span>Established in 2005 with over 15 years of manufacturing experience.</span></li>
+        <li class="flex gap-4"><i class="fa-solid fa-check text-primary mt-1"></i><span>1000+ products manufactured with stringent quality checks.</span></li>
+        <li class="flex gap-4"><i class="fa-solid fa-check text-primary mt-1"></i><span>Custom fabrication as per client drawings and specifications.</span></li>
+        <li class="flex gap-4"><i class="fa-solid fa-check text-primary mt-1"></i><span>4.8★ rating with 32+ reviews on IndiaMART.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="relative py-28">
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-500x500.jpg')"></div>
+  <div class="absolute inset-0" style="background:rgba(139,30,45,.88)"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center section-fade">
+    <h2 class="font-display text-4xl md:text-5xl text-white mb-6">Need Tungsten Carbide Tooling?</h2>
+    <p class="text-white/80 text-lg mb-10 max-w-xl mx-auto">Share your drawings and specifications — we'll get back to you with a quote.</p>
+    <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div id="footer-placeholder"></div>
+<script>
+  fetch('/components/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading footer:', error));
+</script>
+
+<a id="whatsapp-float" href="https://wa.me/918048202874" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i><svg width="52" height="52" viewBox="0 0 52 52"><circle cx="26" cy="26" r="23"></circle></svg></button>
+
+<script src="js/main.js"></script>
+<script src="js/animation.js"></script>
+</body>
+</html>
