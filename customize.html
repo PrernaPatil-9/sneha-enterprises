@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customize Products | Sneha Enterprises — Tungsten Carbide Dies, Bush &amp; Ring Manufacturer, Pune</title>
+<meta name="description" content="Gallery of custom Tungsten Carbide Dies, Bush, Ring and wear parts fabricated by Sneha Enterprises, Pune, as per client drawings and requirements.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { primary:'#FFB900', secondary:'#E63946', accent:'#8B1E2D', darktext:'#1F1F1F', bodytext:'#555555', bordercol:'#EAEAEA', lightbg:'#F8F8F8' },
+      fontFamily: { display:['Playfair Display','serif'], body:['Poppins','sans-serif'] }
+    } }
+  };
+</script>
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- ===== PAGE-SPECIFIC STYLES ===== -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  .page-banner * {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .page-banner {
+    min-height: 50vh;
+    background-color: #1a1a1a;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(31,31,31,.82) 20%, rgba(31,31,31,.35) 100%);
+    z-index: 1;
+  }
+  .page-banner .container { position: relative; z-index: 2; }
+  .page-banner .dim-line {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 400;
+    opacity: 0.85;
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .page-banner .dim-num { color: #fbbf24; margin-right: 0.5rem; font-weight: 600; }
+  .page-banner .font-display {
+    font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0;
+    font-size: 5rem;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+  .page-banner .font-display em {
+    color: #fbbf24;
+    font-style: italic;
+    font-weight: 400;
+    font-family: 'DM Serif Display', Georgia, serif;
+    text-shadow: 0 0 40px rgba(251, 191, 36, 0.2);
+  }
+  @media (max-width: 768px) {
+    .page-banner .font-display { font-size: 3.2rem; }
+    .page-banner .dim-line { font-size: 0.7rem; letter-spacing: 0.25em; }
+  }
+  @media (max-width: 480px) {
+    .page-banner .font-display { font-size: 2.5rem; }
+  }
+
+  /* ===== GALLERY GRID ===== */
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #1F1F1F;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    transition: box-shadow .35s ease, transform .35s ease;
+  }
+  .gallery-item:hover {
+    box-shadow: 0 20px 45px rgba(0,0,0,0.22);
+    transform: translateY(-6px);
+  }
+  .gallery-item .gallery-img-wrap {
+    height: 320px;
+    overflow: hidden;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.08); }
+  .gallery-caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 22px 24px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.88) 10%, rgba(0,0,0,0.35) 65%, transparent 100%);
+    pointer-events: none;
+  }
+  .gallery-caption p.tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #FFB900;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .gallery-caption h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+  }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-body">
+
+<!-- Header included from common/header.html -->
+<div id="header-placeholder"></div>
+<script>
+  fetch('/components/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading header:', error));
+</script>
+
+<!-- ===== BANNER ===== -->
+<section class="page-banner bg-cover bg-center" style="background-image:url('/images/i1.png')">
+  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center">
+    <p class="dim-line justify-center mb-5"><span class="dim-num">—</span> Our Gallery</p>
+    <h1 class="font-display">Customize <em>Products</em></h1>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="text-center max-w-2xl mx-auto mb-16 section-fade">
+      <p class="dim-line justify-center mb-5"><span class="dim-num">01</span> Custom Fabrication</p>
+      <h2 class="font-display text-3xl md:text-4xl text-gray-900">Tungsten Carbide Parts, Made to Your Drawings</h2>
+      <p class="text-sm md:text-base text-gray-600 mt-4 leading-7">A glimpse of the custom dies, bush, rings and wear parts we have fabricated for our clients.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 stagger-group">
+
+      <div class="stagger-item gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="/images/pi1.jpeg" alt="Tungsten Carbide Die">
+        </div>
+        <div class="gallery-caption">
+          <p class="tag">Dies</p>
+          <h3>Tungsten Carbide Die</h3>
+        </div>
+      </div>
+
+      <div class="stagger-item gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="/images/pi2.jpeg" alt="Tungsten Carbide Bush">
+        </div>
+        <div class="gallery-caption">
+          <p class="tag">Bush</p>
+          <h3>Tungsten Carbide Bush</h3>
+        </div>
+      </div>
+
+      <div class="stagger-item gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="/images/pi3.webp" alt="Tungsten Carbide Ring">
+        </div>
+        <div class="gallery-caption">
+          <p class="tag">Ring</p>
+          <h3>Tungsten Carbide Ring</h3>
+        </div>
+      </div>
+
+      <div class="stagger-item gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="/images/pi4.jpg" alt="Cylindrical Grinding">
+        </div>
+        <div class="gallery-caption">
+          <p class="tag">Finishing</p>
+          <h3>Cylindrical Grinding</h3>
+        </div>
+      </div>
+
+      <div class="stagger-item gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="/images/pi5.webp" alt="Centerless Grinding TC Rod">
+        </div>
+        <div class="gallery-caption">
+          <p class="tag">Finishing</p>
+          <h3>Centerless Grinding (TC Rod)</h3>
+        </div>
+      </div>
+
+      <div class="stagger-item gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="/images/pi6.jpeg" alt="Tungsten Carbide Strip">
+        </div>
+        <div class="gallery-caption">
+          <p class="tag">Strip</p>
+          <h3>Tungsten Carbide Strip</h3>
+        </div>
+      </div>
+
+      <div class="stagger-item gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="/images/p1.webp" alt="Custom Tungsten Carbide Part">
+        </div>
+        <div class="gallery-caption">
+          <p class="tag">Custom</p>
+          <h3>Custom Wear Part</h3>
+        </div>
+      </div>
+
+      <div class="stagger-item gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="/images/a1.jpg" alt="Precision Tooling">
+        </div>
+        <div class="gallery-caption">
+          <p class="tag">Tooling</p>
+          <h3>Precision Tooling</h3>
+        </div>
+      </div>
+
+      <div class="stagger-item gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="/images/hb1.jpg" alt="Guide Bush Manufacturing">
+        </div>
+        <div class="gallery-caption">
+          <p class="tag">Bush</p>
+          <h3>Guide Bush</h3>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-16 bg-[#f8f8f8]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center section-fade">
+    <h2 class="font-display text-2xl md:text-3xl text-gray-900 mb-4">Have a Custom Requirement?</h2>
+    <p class="text-sm md:text-base text-gray-600 mb-8 max-w-xl mx-auto">Share your drawing and specifications with us — we'll fabricate it to your exact tolerance.</p>
+    <a href="contact.html" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-medium px-8 py-4 rounded-lg transition tracking-wide">
+      Request a Quote
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div id="footer-placeholder"></div>
+<script>
+  fetch('/components/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading footer:', error));
+</script>
+
+<a id="whatsapp-float" href="https://wa.me/918048202874" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+  <svg width="52" height="52" viewBox="0 0 52 52"><circle cx="26" cy="26" r="23"></circle></svg>
+</button>
+
+<script src="js/main.js"></script>
+<script src="js/animation.js"></script>
+</body>
+</html>

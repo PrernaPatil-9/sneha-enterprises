@@ -123,17 +123,102 @@
 </style>
 
 <!-- ===== COMPANY OVERVIEW ===== -->
-<section class="py-28 bg-white">
+<section class="py-28 bg-white overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
-    <div class="reveal-left dim-corner">
-      <img src="https://5.imimg.com/data5/SELLER/Default/2024/8/441426138/ML/FT/AQ/36451235/carbide-bush-500x500.jpg" class="w-full h-[540px] object-cover rounded-sm" alt="Tungsten Carbide Bush manufactured by Sneha Enterprises">
+
+    <!-- IMAGE SIDE -->
+    <div class="reveal-left relative">
+      <div class="relative h-[540px] rounded-[28px] overflow-hidden shadow-2xl">
+        <img
+          src="/images/a1.jpg"
+          class="w-full h-full object-cover"
+          alt="Tungsten Carbide Bush manufactured by Sneha Enterprises"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent"></div>
+
+        <!-- Floating Badge -->
+        <div class="absolute bottom-6 left-6 bg-white/15 backdrop-blur-xl rounded-2xl px-6 py-4 border border-white/25">
+          <p class="font-display text-3xl text-white font-bold leading-none">2005<span class="text-amber-400">+</span></p>
+          <p class="text-[10px] tracking-widest uppercase text-white/80 mt-1">Established Since</p>
+        </div>
+
+        <!-- Decorative dots -->
+        <div class="absolute top-6 right-6 grid grid-cols-3 gap-2">
+          <span class="w-2 h-2 bg-white/40 rounded-full"></span>
+          <span class="w-2 h-2 bg-white/40 rounded-full"></span>
+          <span class="w-2 h-2 bg-white/40 rounded-full"></span>
+          <span class="w-2 h-2 bg-white/40 rounded-full"></span>
+          <span class="w-2 h-2 bg-white/40 rounded-full"></span>
+          <span class="w-2 h-2 bg-white/40 rounded-full"></span>
+        </div>
+      </div>
+
+      <!-- Accent panel behind image -->
+      <div class="hidden lg:block absolute -bottom-8 -right-8 w-40 h-40 rounded-[28px] bg-[#fce4e8] -z-10"></div>
     </div>
+
+    <!-- CONTENT SIDE -->
     <div class="reveal-up">
       <p class="dim-line mb-5"><span class="dim-num">01</span> Company Overview</p>
-      <h2 class="font-display text-4xl md:text-5xl mb-6 leading-tight">Precision tooling, built to industrial standards.</h2>
-      <p class="leading-8 mb-5">Established in the year 2005, Sneha Enterprises emerged as one of the prominent manufacturers and exporters of a wide range of best quality Tungsten Carbide Wear Parts. The offered range is made available to customers at a comprehensive and market-leading price range, fabricated by our professionals out of raw material as per client requirements.</p>
-      <p class="leading-8">Our range includes Tungsten Carbide Draw Dies, Tungsten Carbide Pointing Dies, Carbide Cold Heading Dies, Carbide Extrusion Dies, Heading Dies, Carbide Plug, Tablet Compression Dies, Guide Bush and Jig Bush — manufactured as per your drawings.</p>
+
+      <h2 class="font-display text-4xl md:text-5xl mb-6 leading-tight text-gray-900">
+        Precision Tooling, Built to <span class="text-[#c0392b]">Industrial Standards</span>
+      </h2>
+
+      <p class="leading-8 mb-5 text-gray-700 text-sm md:text-base">
+        Established in the year 2005, Sneha Enterprises emerged as one of the prominent manufacturers and exporters of a wide range of best quality Tungsten Carbide Wear Parts — made available to customers at a comprehensive, market-leading price range and fabricated by our professionals as per client requirements.
+      </p>
+
+      <p class="leading-8 mb-8 text-gray-700 text-sm md:text-base">
+        Every component we ship is checked against your drawing and industrial tolerance standards before it leaves our facility.
+      </p>
+
+      <!-- Product Range Grid -->
+      <div class="grid sm:grid-cols-2 gap-x-6 gap-y-4 mb-10">
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          </span>
+          <span class="text-sm text-gray-700">Tungsten Carbide Draw Dies</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          </span>
+          <span class="text-sm text-gray-700">Tungsten Carbide Pointing Dies</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          </span>
+          <span class="text-sm text-gray-700">Carbide Cold Heading Dies</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          </span>
+          <span class="text-sm text-gray-700">Carbide Extrusion &amp; Heading Dies</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          </span>
+          <span class="text-sm text-gray-700">Carbide Plug &amp; Tablet Compression Dies</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          </span>
+          <span class="text-sm text-gray-700">Guide Bush &amp; Jig Bush</span>
+        </div>
+      </div>
+
+      <a href="/about.html" class="inline-flex items-center gap-2 bg-[#c0392b] hover:bg-[#a93226] text-white font-medium px-8 py-4 rounded-lg transition tracking-wide">
+        Learn More About Us
+        <i class="fa-solid fa-arrow-right text-sm"></i>
+      </a>
     </div>
+
   </div>
 </section>
 
