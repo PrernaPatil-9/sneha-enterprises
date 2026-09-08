@@ -94,47 +94,31 @@ h1, h2, h3, h4, h5, .font-display {
 /* ---------- Header ---------- */
 #site-header {
   position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-  transition: background-color .4s ease, box-shadow .4s ease, padding .4s ease;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 6px 30px rgba(0,0,0,.08);
+  transition: box-shadow .4s ease, padding .4s ease;
   padding: 26px 0;
 }
 #site-header.scrolled {
-  background: rgba(255,255,255,.96);
-  box-shadow: 0 6px 30px rgba(0,0,0,.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
   padding: 14px 0;
 }
 
-#site-header.scrolled .nav-link {
-  color: #1F1F1F;
-}
-
-#site-header.scrolled .nav-link::after {
-  background: var(--secondary);
-}
-
-#site-header.scrolled .nav-link:hover::after,
-#site-header.scrolled .nav-link.active::after {
-  background: var(--secondary);
-}
-
-#site-header.scrolled .nav-link.active {
-  color: var(--secondary);
-}
-
-#site-header.scrolled .text-white {
-  color: #1F1F1F;
-}
 #site-header .nav-link {
   position: relative; font-size: .85rem; letter-spacing: .05em;
-  color: #fff; font-weight: 500; padding-bottom: 4px;
+  color: #1F1F1F; font-weight: 500; padding-bottom: 4px;
 }
 #site-header .nav-link::after {
   content: ""; position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0;
-  background: var(--primary); transition: width .35s ease;
+  background: var(--secondary); transition: width .35s ease;
 }
 #site-header .nav-link:hover::after,
 #site-header .nav-link.active::after { width: 100%; }
-#site-header .nav-link.active { color: var(--primary); }
+#site-header .nav-link.active { color: var(--secondary); }
 
+#site-header .text-white {
+  color: #1F1F1F;
+}
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; gap: 10px;

@@ -18,59 +18,63 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
   .filter-btn { font-size:.8rem; letter-spacing:.05em; text-transform:uppercase; padding:10px 22px; border:1px solid #EAEAEA; border-radius:2px; color:#555555; transition:all .3s ease; background:#fff; cursor:pointer; }
-  .filter-btn.active-filter, .filter-btn:hover { background:#8B1E2D; border-color:#8B1E2D; color:#fff; }
+  .filter-btn.active-filter, .filter-btn:hover { background:#1e5fbf; border-color:#1e5fbf; color:#fff; }
 
   .product-item {
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
-    background: #1F1F1F;
+    border-radius: 12px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
     cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .product-item:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+    border-color: #1e5fbf;
+    background: #eeeeee;
   }
   .product-item img {
     width: 100%;
-    height: 380px;
+    height: 300px;
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
   }
   .product-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
   
   .product-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 30px 28px 28px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.95));
-    color: #fff;
+    padding: 20px 24px 24px;
+    background: #f5f5f5;
+    color: #1F1F1F;
     pointer-events: none;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
+    border-top: 1px solid #e0e0e0;
   }
   .product-item:hover .product-overlay {
-    padding-bottom: 32px;
-    background: linear-gradient(transparent, rgba(139,30,45,0.85) 30%, rgba(139,30,45,0.95));
+    background: #eeeeee;
   }
   .product-overlay .badge {
     display: inline-block;
     font-size: 0.6rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #FFB900;
+    color: #1e5fbf;
     margin-bottom: 4px;
     font-weight: 600;
   }
   .product-overlay h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 2px;
-    color: #fff;
+    color: #1F1F1F;
     font-weight: 600;
   }
   .product-overlay .view-link {
-    color: #FFB900;
+    color: #1e5fbf;
     font-size: 0.8rem;
     font-weight: 600;
     text-decoration: none;
@@ -82,7 +86,7 @@
     letter-spacing: 0.03em;
   }
   .product-overlay .view-link:hover {
-    color: #fff;
+    color: #1a4f9e;
     gap: 10px;
   }
   .product-overlay .view-link i {
@@ -107,7 +111,7 @@
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     justify-content: center;
@@ -134,7 +138,7 @@
     overflow-y: auto;
     position: relative;
     padding: 40px 45px 45px;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
   }
 
   .modal-close {
@@ -166,7 +170,7 @@
     font-size: 0.65rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #8B1E2D;
+    color: #1e5fbf;
     font-weight: 600;
     margin-bottom: 6px;
   }
@@ -180,20 +184,19 @@
   }
 
   .modal-content .modal-price {
-    color: #8B1E2D;
+    color: #1e5fbf;
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 12px;
   }
 
-  /* Modal Image - Smaller */
   .modal-image-container {
     width: 100%;
     max-width: 400px;
     margin: 0 auto 20px;
     border-radius: 8px;
     overflow: hidden;
-    background: #f5f0ed;
+    background: #f5f5f5;
     border: 1px solid #EAEAEA;
   }
   .modal-image-container img {
@@ -211,7 +214,7 @@
   }
 
   .modal-content .modal-specs {
-    background: #f8f8f8;
+    background: #f5f5f5;
     border-radius: 8px;
     padding: 16px 20px;
     margin-bottom: 16px;
@@ -220,7 +223,7 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #8B1E2D;
+    color: #1e5fbf;
     font-weight: 600;
     margin-bottom: 8px;
   }
@@ -240,15 +243,14 @@
   }
   .modal-content .modal-specs ul li::before {
     content: "•";
-    color: #8B1E2D;
+    color: #1e5fbf;
     font-weight: 700;
     position: absolute;
     left: 0;
   }
 
-  /* Additional Info Section */
   .modal-additional-info {
-    background: #f8f8f8;
+    background: #f5f5f5;
     border-radius: 8px;
     padding: 16px 20px;
     margin-bottom: 16px;
@@ -257,7 +259,7 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #8B1E2D;
+    color: #1e5fbf;
     font-weight: 600;
     margin-bottom: 8px;
   }
@@ -290,7 +292,7 @@
 
   .modal-cta .btn-modal {
     padding: 12px 30px;
-    background: #8B1E2D;
+    background: #1e5fbf;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -304,16 +306,16 @@
     gap: 8px;
   }
   .modal-cta .btn-modal:hover {
-    background: #6a1622;
+    background: #1a4f9e;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(139,30,45,0.3);
+    box-shadow: 0 8px 25px rgba(30,95,191,0.3);
   }
 
   .modal-cta .btn-modal-outline {
     padding: 12px 30px;
     background: transparent;
-    color: #8B1E2D;
-    border: 2px solid #8B1E2D;
+    color: #1e5fbf;
+    border: 2px solid #1e5fbf;
     border-radius: 4px;
     font-weight: 500;
     font-size: 0.85rem;
@@ -325,10 +327,10 @@
     gap: 8px;
   }
   .modal-cta .btn-modal-outline:hover {
-    background: #8B1E2D;
+    background: #1e5fbf;
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(139,30,45,0.15);
+    box-shadow: 0 8px 25px rgba(30,95,191,0.15);
   }
 
   .modal-content::-webkit-scrollbar {
@@ -339,7 +341,7 @@
     border-radius: 10px;
   }
   .modal-content::-webkit-scrollbar-thumb {
-    background: #8B1E2D;
+    background: #1e5fbf;
     border-radius: 10px;
   }
 
@@ -411,12 +413,9 @@
     justify-content: center;
   }
 
-  .page-banner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(100deg, rgba(31,31,31,.08) 20%, rgba(31,31,31,.0) 100%);
-    z-index: 1;
+  .page-banner::after {
+    content: none !important;
+    background: none !important;
   }
 
   .page-banner .container {
@@ -507,7 +506,6 @@
     <h2 id="modalTitle">Product Name</h2>
     <p class="modal-price" id="modalPrice">₹ 1,920 / Piece</p>
 
-    <!-- Single Product Image - Smaller -->
     <div class="modal-image-container">
       <img id="modalImage" src="" alt="Product Image">
     </div>
@@ -519,7 +517,6 @@
       <ul id="modalSpecsList"></ul>
     </div>
 
-    <!-- Additional Product Information -->
     <div class="modal-additional-info" id="modalAdditionalInfo">
       <h4>Product Details</h4>
       <div class="info-row">
@@ -573,37 +570,37 @@
       name: "Tungsten Carbide Dies",
       count: 21,
       products: [
-        { id: "tc-die-19664140555", name: "Tungsten Carbide Die", price: "₹ 1,920 / Piece", image: "/images/p1.webp", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Country of Origin: Made in India"], description: "A best-fit collection of Tungsten Carbide Dies catering to precise customer specifications. Safe, easy to use, compact and tamper proof with leak-proof packaging at an economical rate." },
-        { id: "tc-die-21143474033", name: "Tungsten Carbide Die", price: "₹ 2,960 / Piece", image: "/assets/images/hp2.webp", specs: ["Material: Tungsten Carbide", "Country of Origin: Made in India"], description: "Offered by our vastly experienced team in this domain." },
-        { id: "tc-sizing-die-19632949962", name: "Tungsten Carbide Sizing Die", price: "₹ 2,630 / Piece", image: "/assets/images/hp3.webp", specs: ["Color: Silver", "Material: Tungsten Carbide", "Surface Finishing: Gloss", "Country of Origin: Made in India"], description: "Tungsten carbide dies are the foremost choice in wire-industry drawing equipment when an economical option is desired over better wear resistance and wire surface finish." },
-        { id: "tc-dies-21417584697", name: "Tungsten Carbide Dies", price: "₹ 3,200 / Piece", image: "/assets/images/hp4.jpg", specs: ["Bore Diameter: All sizes available", "Usage/Application: Industrial", "Color: Steel", "Country of Origin: Made in India"], description: "Manufactured, exported and supplied with an expert team, this optimum quality CNC wire cut component range is used in various cutting operations across industries." },
-        { id: "tc-dies-21057229055", name: "Tungsten Carbide Dies", price: "₹ 2,630 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-125x125.jpg", specs: ["Bore Diameter: More than 100 mm", "Usage/Application: Industrial", "Hardness: Above 80 HRC", "Material: Stainless Steel"], description: "One of the prominent manufacturers and exporters of a wide range of best quality Tungsten Carbide Wear Parts, established in the year 2005." },
-        { id: "tc-die-19664168997", name: "Tungsten Carbide Die", price: "₹ 2,200 / Piece", image: "https://4.imimg.com/data4/KC/YF/ANDROID-36451235/product-125x125.jpeg", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Color: Silver"], description: "Part of our prominent range of best quality Tungsten Carbide Wear Parts." },
-        { id: "tc-extrusion-dies-23022287648", name: "Tungsten Carbide Extrusion Dies", price: "₹ 3,500 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441579385/RU/QT/DI/36451235/tungsten-carbide-extrusion-dies-125x125.jpg", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Color: Silver"], description: "Tungsten carbide wire drawing dies are tools with highly-polished, specially-shaped holes through which wire is drawn to reduce its diameter." },
-        { id: "tc-dies-18996731973", name: "Tungsten Carbide Dies", price: "₹ 2,600 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-125x125.jpg", specs: ["Location: Off Site", "Machine Type: Semi Automatic"], description: "Leading supplier of Tungsten Carbide Dies, dealing all over India and abroad. High-performance forming tools known for exceptional hardness, wear resistance and thermal stability." },
-        { id: "tc-dies-18749959733", name: "Tungsten Carbide Dies", price: "₹ 2,590 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2023/4/303671698/BH/US/QA/36451235/tungsten-carbide-dies-125x125.png", specs: ["Country of Origin: Made in India"], description: "Precision tungsten carbide dies manufactured to customer specification." },
-        { id: "tc-dies-19401448373", name: "Tungsten Carbide Dies", price: "₹ 2,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441410658/WX/QU/VL/36451235/tungsten-carbide-dies-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Precision tungsten carbide dies manufactured to customer specification." }
+        { id: "tc-die-19664140555", name: "Tungsten Carbide Die", image: "/images/p1.webp", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Country of Origin: Made in India"], description: "A best-fit collection of Tungsten Carbide Dies catering to precise customer specifications. Safe, easy to use, compact and tamper proof with leak-proof packaging at an economical rate." },
+        // { id: "tc-die-21143474033", name: "Tungsten Carbide Die", price: "₹ 2,960 / Piece", image: "/assets/images/hp2.webp", specs: ["Material: Tungsten Carbide", "Country of Origin: Made in India"], description: "Offered by our vastly experienced team in this domain." },
+        { id: "tc-sizing-die-19632949962", name: "Tungsten Carbide Sizing Die", image: "/images/pi1.jpeg", specs: ["Color: Silver", "Material: Tungsten Carbide", "Surface Finishing: Gloss", "Country of Origin: Made in India"], description: "Tungsten carbide dies are the foremost choice in wire-industry drawing equipment when an economical option is desired over better wear resistance and wire surface finish." },
+        // { id: "tc-dies-21417584697", name: "Tungsten Carbide Dies", price: "₹ 3,200 / Piece", image: "/assets/images/hp4.jpg", specs: ["Bore Diameter: All sizes available", "Usage/Application: Industrial", "Color: Steel", "Country of Origin: Made in India"], description: "Manufactured, exported and supplied with an expert team, this optimum quality CNC wire cut component range is used in various cutting operations across industries." },
+        // { id: "tc-dies-21057229055", name: "Tungsten Carbide Dies", price: "₹ 2,630 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-125x125.jpg", specs: ["Bore Diameter: More than 100 mm", "Usage/Application: Industrial", "Hardness: Above 80 HRC", "Material: Stainless Steel"], description: "One of the prominent manufacturers and exporters of a wide range of best quality Tungsten Carbide Wear Parts, established in the year 2005." },
+        // { id: "tc-die-19664168997", name: "Tungsten Carbide Die", price: "₹ 2,200 / Piece", image: "https://4.imimg.com/data4/KC/YF/ANDROID-36451235/product-125x125.jpeg", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Color: Silver"], description: "Part of our prominent range of best quality Tungsten Carbide Wear Parts." },
+        // { id: "tc-extrusion-dies-23022287648", name: "Tungsten Carbide Extrusion Dies", price: "₹ 3,500 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441579385/RU/QT/DI/36451235/tungsten-carbide-extrusion-dies-125x125.jpg", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Color: Silver"], description: "Tungsten carbide wire drawing dies are tools with highly-polished, specially-shaped holes through which wire is drawn to reduce its diameter." },
+        // { id: "tc-dies-18996731973", name: "Tungsten Carbide Dies", price: "₹ 2,600 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-125x125.jpg", specs: ["Location: Off Site", "Machine Type: Semi Automatic"], description: "Leading supplier of Tungsten Carbide Dies, dealing all over India and abroad. High-performance forming tools known for exceptional hardness, wear resistance and thermal stability." },
+        // { id: "tc-dies-18749959733", name: "Tungsten Carbide Dies", price: "₹ 2,590 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2023/4/303671698/BH/US/QA/36451235/tungsten-carbide-dies-125x125.png", specs: ["Country of Origin: Made in India"], description: "Precision tungsten carbide dies manufactured to customer specification." },
+        // { id: "tc-dies-19401448373", name: "Tungsten Carbide Dies", price: "₹ 2,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441410658/WX/QU/VL/36451235/tungsten-carbide-dies-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Precision tungsten carbide dies manufactured to customer specification." }
       ]
     },
-    {
-      id: "tungsten-carbide-bush",
-      name: "Tungsten Carbide Bush",
-      count: 12,
-      products: [
-        { id: "carbide-guide-bush-19384103212", name: "Carbide Guide Bush", price: "₹ 1,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441426138/ML/FT/AQ/36451235/carbide-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Precision carbide guide bush fabricated as per client drawings and specifications." },
-        { id: "tc-guide-bush-22973532448", name: "Tungsten Carbide Guide Bush", price: "₹ 1,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2020/12/HH/JM/ZC/36451235/tc-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Guide bush manufactured to industrial tolerance standards." },
-        { id: "tc-bush-23022371912", name: "Tungsten Carbide Bush", price: "₹ 1,320 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441580805/WJ/CD/DX/36451235/carbide-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Manufactured with quality raw material and stringent quality checks." },
-        { id: "carbide-bush-19383602548", name: "Carbide Bush", price: "₹ 800 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441441241/GQ/CB/XJ/36451235/carbide-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Economical carbide bush for general industrial tooling requirements." }
-      ]
-    },
+    // {
+    //   id: "tungsten-carbide-bush",
+    //   name: "Tungsten Carbide Bush",
+    //   count: 12,
+    //   products: [
+    //     { id: "carbide-guide-bush-19384103212", name: "Carbide Guide Bush", price: "₹ 1,250 / Piece", image: "/images/p1.webp", specs: ["Country of Origin: Made in India"], description: "Precision carbide guide bush fabricated as per client drawings and specifications." },
+    //     { id: "tc-guide-bush-22973532448", name: "Tungsten Carbide Guide Bush", price: "₹ 1,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2020/12/HH/JM/ZC/36451235/tc-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Guide bush manufactured to industrial tolerance standards." },
+    //     { id: "tc-bush-23022371912", name: "Tungsten Carbide Bush", price: "₹ 1,320 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441580805/WJ/CD/DX/36451235/carbide-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Manufactured with quality raw material and stringent quality checks." },
+    //     { id: "carbide-bush-19383602548", name: "Carbide Bush", price: "₹ 800 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441441241/GQ/CB/XJ/36451235/carbide-bush-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Economical carbide bush for general industrial tooling requirements." }
+    //   ]
+    // },
     {
       id: "tungsten-carbide-ring",
       name: "Tungsten Carbide Ring",
       count: 8,
       products: [
-        { id: "tc-ring-16471587548", name: "Tungsten Carbide Ring", price: "₹ 1,620 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441423412/TP/QO/LZ/36451235/tungsten-carbide-ring-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Manufactured with tensity, resistance and durability tested as per industrial parameters." },
-        { id: "tc-wear-ring-19383918391", name: "Tungsten Carbide Wear Ring", price: "₹ 1,320 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441425500/HO/BM/XF/36451235/tungsten-carbide-wear-ring-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Engineered for high wear-resistance in industrial applications." },
-        { id: "tc-ring-19465925330", name: "Tungsten Carbide Ring", price: "₹ 850 / Piece", image: "https://5.imimg.com/data5/OF/KQ/MY-36451235/tungsten-carbide-ring-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Manufactured to precise industrial specification." }
+        { id: "tc-ring-16471587548", name: "Tungsten Carbide Ring", image: "/images/pi3.webp", specs: ["Country of Origin: Made in India"], description: "Manufactured with tensity, resistance and durability tested as per industrial parameters." },
+        // { id: "tc-wear-ring-19383918391", name: "Tungsten Carbide Wear Ring", price: "₹ 1,320 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441425500/HO/BM/XF/36451235/tungsten-carbide-wear-ring-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Engineered for high wear-resistance in industrial applications." },
+        // { id: "tc-ring-19465925330", name: "Tungsten Carbide Ring", price: "₹ 850 / Piece", image: "https://5.imimg.com/data5/OF/KQ/MY-36451235/tungsten-carbide-ring-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Manufactured to precise industrial specification." }
       ]
     },
     {
@@ -691,7 +688,6 @@
         </div>`;
       }).join('');
 
-      // Attach click events to view links
       document.querySelectorAll('.view-link').forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
@@ -701,7 +697,6 @@
         });
       });
 
-      // Animation effect
       document.querySelectorAll('.product-item').forEach((el, i) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
@@ -713,7 +708,6 @@
       });
     }
 
-    // Filter functionality
     filterButtons.forEach(button => {
       button.addEventListener('click', function() {
         filterButtons.forEach(btn => btn.classList.remove('active-filter'));
@@ -737,7 +731,6 @@
       document.getElementById('modalImage').alt = product.name;
       document.getElementById('modalDescription').textContent = product.description || 'High-quality tungsten carbide product manufactured to industrial standards.';
 
-      // Specs
       const specsList = document.getElementById('modalSpecsList');
       specsList.innerHTML = '';
       if (product.specs && product.specs.length > 0) {
@@ -751,11 +744,9 @@
         document.getElementById('modalSpecs').style.display = 'none';
       }
 
-      // Additional Info
       document.getElementById('infoCategory').textContent = product.categoryName || '-';
       document.getElementById('infoProductId').textContent = product.id || '-';
       
-      // Extract material from specs if available
       let material = 'Tungsten Carbide';
       let origin = 'Made in India';
       if (product.specs && product.specs.length > 0) {
@@ -793,7 +784,6 @@
       }
     });
 
-    // Initialize - show all products
     renderProducts('all');
   });
 </script>

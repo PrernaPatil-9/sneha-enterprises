@@ -33,19 +33,27 @@
 </script>
 
 <!-- ===== PAGE BANNER ===== -->
-<section class="page-banner bg-cover bg-center" style="background-image:url('/images/a2.png')">
-  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center">
-    <p class="dim-line justify-center mb-5"><span class="dim-num">—</span> Product Gallery</p>
-    <h1 class="font-display">Tungsten Carbide<br> <em>Product Range</em></h1>
+<section class="page-banner bg-cover bg-center relative flex items-center" style="background-image:url('/images/b2.png')">
+  <!-- Light overlay -->
+  <div class="absolute inset-0" style="background:rgba(0,0,0,0.25)"></div>
+  
+  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center relative z-10">
+    <p class="dim-line justify-center mb-5 text-white/70 text-xs tracking-[0.2em] uppercase font-light">
+      <span class="dim-num">—</span> Product Gallery
+    </p>
+    <h1 class="font-bold tracking-tight text-white text-5xl md:text-6xl lg:text-7xl leading-[1.05]">
+      Tungsten Carbide<br>
+      <em class="text-amber-400 not-italic font-bold">Product Range</em>
+    </h1>
   </div>
 </section>
 
 <!-- Font Styles for Page Banner -->
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
   .page-banner * {
-    font-family: 'Oswald', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   .page-banner {
@@ -57,12 +65,10 @@
     justify-content: center;
   }
 
-  .page-banner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(100deg, rgba(0,0,0,0.05) 20%, rgba(0,0,0,0.0) 100%);
-    z-index: 1;
+  /* Kill the dark overlay coming from css/style.css */
+  .page-banner::after {
+    content: none !important;
+    background: none !important;
   }
 
   .page-banner .container {
@@ -70,56 +76,24 @@
     z-index: 2;
   }
 
-  .page-banner .dim-line {
-    font-size: 0.9rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    font-weight: 300;
-    opacity: 0.9;
-    color: #ffffff;
-    font-family: 'Oswald', sans-serif;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  }
-
-  .page-banner .dim-num {
+  .text-amber-400 {
     color: #fbbf24;
-    margin-right: 0.5rem;
-    font-weight: 600;
   }
 
-  .page-banner .font-display {
-    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-    font-weight: 800;
+  .font-bold {
+    font-weight: 700;
+  }
+
+  .tracking-tight {
     letter-spacing: -0.02em;
-    line-height: 1.1;
-    color: #ffffff;
-    margin: 0;
-    font-size: 5rem;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.6);
   }
 
-  .page-banner .font-display em {
-    color: #fbbf24;
-    font-style: italic;
-    font-weight: 800;
-    font-family: 'Playfair Display', Georgia, serif;
-    text-shadow: 0 0 40px rgba(251, 191, 36, 0.15);
+  .dim-line {
+    opacity: 0.7;
   }
 
-  @media (max-width: 768px) {
-    .page-banner .font-display {
-      font-size: 3.2rem;
-    }
-    .page-banner .dim-line {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .page-banner .font-display {
-      font-size: 2.5rem;
-    }
+  .dim-num {
+    opacity: 0.5;
   }
 </style>
 
@@ -131,7 +105,7 @@
     <div class="reveal-left relative">
       <div class="relative h-[540px] rounded-[28px] overflow-hidden shadow-2xl">
         <img
-          src="/images/a1.jpg"
+          src="/images/abt1.png"
           class="w-full h-full object-cover"
           alt="Tungsten Carbide Bush manufactured by Sneha Enterprises"
         >
@@ -139,7 +113,7 @@
 
         <!-- Floating Badge -->
         <div class="absolute bottom-6 left-6 bg-white/15 backdrop-blur-xl rounded-2xl px-6 py-4 border border-white/25">
-          <p class="font-display text-3xl text-white font-bold leading-none">2005<span class="text-amber-400">+</span></p>
+          <p class="font-display text-3xl text-white font-bold leading-none">2005<span class="text-[#1e5fbf]">+</span></p>
           <p class="text-[10px] tracking-widest uppercase text-white/80 mt-1">Established Since</p>
         </div>
 
@@ -155,7 +129,7 @@
       </div>
 
       <!-- Accent panel behind image -->
-      <div class="hidden lg:block absolute -bottom-8 -right-8 w-40 h-40 rounded-[28px] bg-[#fce4e8] -z-10"></div>
+      <div class="hidden lg:block absolute -bottom-8 -right-8 w-40 h-40 rounded-[28px] bg-[#e8f0fe] -z-10"></div>
     </div>
 
     <!-- CONTENT SIDE -->
@@ -163,7 +137,7 @@
       <p class="dim-line mb-5"><span class="dim-num">01</span> Company Overview</p>
 
       <h2 class="font-display text-4xl md:text-5xl mb-6 leading-tight text-gray-900">
-        Precision Tooling, Built to <span class="text-[#c0392b]">Industrial Standards</span>
+        Precision Tooling, Built to <span class="text-[#1e5fbf]">Industrial Standards</span>
       </h2>
 
       <p class="leading-8 mb-5 text-gray-700 text-sm md:text-base">
@@ -177,44 +151,44 @@
       <!-- Product Range Grid -->
       <div class="grid sm:grid-cols-2 gap-x-6 gap-y-4 mb-10">
         <div class="flex items-start gap-3">
-          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
-            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          <span class="w-8 h-8 rounded-full bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#1e5fbf] text-xs"></i>
           </span>
           <span class="text-sm text-gray-700">Tungsten Carbide Draw Dies</span>
         </div>
         <div class="flex items-start gap-3">
-          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
-            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          <span class="w-8 h-8 rounded-full bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#1e5fbf] text-xs"></i>
           </span>
           <span class="text-sm text-gray-700">Tungsten Carbide Pointing Dies</span>
         </div>
         <div class="flex items-start gap-3">
-          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
-            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          <span class="w-8 h-8 rounded-full bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#1e5fbf] text-xs"></i>
           </span>
           <span class="text-sm text-gray-700">Carbide Cold Heading Dies</span>
         </div>
         <div class="flex items-start gap-3">
-          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
-            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          <span class="w-8 h-8 rounded-full bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#1e5fbf] text-xs"></i>
           </span>
           <span class="text-sm text-gray-700">Carbide Extrusion &amp; Heading Dies</span>
         </div>
         <div class="flex items-start gap-3">
-          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
-            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          <span class="w-8 h-8 rounded-full bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#1e5fbf] text-xs"></i>
           </span>
           <span class="text-sm text-gray-700">Carbide Plug &amp; Tablet Compression Dies</span>
         </div>
         <div class="flex items-start gap-3">
-          <span class="w-8 h-8 rounded-full bg-[#c0392b]/10 flex items-center justify-center shrink-0 mt-0.5">
-            <i class="fa-solid fa-check text-[#c0392b] text-xs"></i>
+          <span class="w-8 h-8 rounded-full bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-[#1e5fbf] text-xs"></i>
           </span>
           <span class="text-sm text-gray-700">Guide Bush &amp; Jig Bush</span>
         </div>
       </div>
 
-      <a href="/about.html" class="inline-flex items-center gap-2 bg-[#c0392b] hover:bg-[#a93226] text-white font-medium px-8 py-4 rounded-lg transition tracking-wide">
+      <a href="/about.html" class="inline-flex items-center gap-2 bg-[#1e5fbf] hover:bg-[#1a4f9e] text-white font-medium px-8 py-4 rounded-lg transition tracking-wide">
         Learn More About Us
         <i class="fa-solid fa-arrow-right text-sm"></i>
       </a>
@@ -224,6 +198,42 @@
 </section>
 
 <!-- ===== VISION / MISSION ===== -->
+<style>
+  /* ===== FLIP CARD CORE ===== */
+  .flip-card {
+    perspective: 1200px;
+    height: 260px;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  /* Desktop: flip on hover */
+  @media (min-width: 768px) {
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+  }
+  /* Mobile: flip driven by JS toggling this class */
+  .flip-card-inner.is-flipped {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-face {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 0.75rem;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+</style>
+
 <section class="py-16 bg-lightbg">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
@@ -235,48 +245,130 @@
     <div class="grid md:grid-cols-2 gap-6 stagger-group">
 
       <!-- Vision Card -->
-      <div class="stagger-item group relative bg-white p-6 rounded-xl border border-bordercol shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+      <div class="flip-card group">
+        <div class="flip-card-inner">
 
-        <span class="absolute -top-2 -right-1 font-display text-5xl leading-none text-[#fce4e8] select-none">01</span>
+          <!-- FRONT -->
+          <div class="flip-card-face flip-card-front relative bg-white p-6 rounded-xl border border-bordercol shadow-md overflow-hidden">
+            <span class="absolute -top-2 -right-1 font-display text-5xl leading-none text-[#e8f0fe] select-none">01</span>
 
-        <div class="relative z-10 flex items-start gap-4">
-          <div class="w-11 h-11 rounded-xl bg-[#c0392b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c0392b] transition-all duration-300">
-            <i class="fa-solid fa-eye text-base text-[#c0392b] group-hover:text-white transition-all duration-300"></i>
+            <div class="relative z-10 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 transition-all duration-300">
+                <i class="fa-solid fa-eye text-base text-[#1e5fbf] transition-all duration-300"></i>
+              </div>
+
+              <div>
+                <p class="text-[10px] tracking-widest uppercase text-[#1e5fbf] font-semibold mb-1">Our Vision</p>
+                <h3 class="font-display text-lg mb-2 text-gray-900">Setting the Standard</h3>
+                <p class="leading-6 text-gray-600 text-sm">
+                  To be the most trusted manufacturer of tungsten carbide wear parts in India, delivering precision tooling that exceeds expectations.
+                </p>
+              </div>
+            </div>
+
+            <p class="absolute bottom-4 right-5 text-[11px] text-gray-400 hidden md:block">Hover to flip</p>
           </div>
 
-          <div>
-            <p class="text-[10px] tracking-widest uppercase text-[#c0392b] font-semibold mb-1">Our Vision</p>
-            <h3 class="font-display text-lg mb-2 text-gray-900">Setting the Standard</h3>
-            <p class="leading-6 text-gray-600 text-sm">
-              To be the most trusted manufacturer of tungsten carbide wear parts in India, delivering precision tooling that exceeds expectations.
+          <!-- BACK -->
+          <div class="flip-card-face flip-card-back relative bg-[#1e5fbf] p-6 rounded-xl border border-bordercol shadow-md overflow-hidden flex flex-col justify-center">
+            <div class="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-eye text-base text-white"></i>
+            </div>
+            <h3 class="font-display text-lg mb-2 text-white">Why it matters</h3>
+            <p class="leading-6 text-white/85 text-sm">
+              Every part we ship carries our name. Being trusted means customers can build their own reputation on ours — that's the standard we hold ourselves to.
             </p>
           </div>
+
         </div>
       </div>
 
       <!-- Mission Card -->
-      <div class="stagger-item group relative bg-white p-6 rounded-xl border border-bordercol shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+      <div class="flip-card group">
+        <div class="flip-card-inner">
 
-        <span class="absolute -top-2 -right-1 font-display text-5xl leading-none text-[#fce4e8] select-none">02</span>
+          <!-- FRONT -->
+          <div class="flip-card-face flip-card-front relative bg-white p-6 rounded-xl border border-bordercol shadow-md overflow-hidden">
+            <span class="absolute -top-2 -right-1 font-display text-5xl leading-none text-[#e8f0fe] select-none">02</span>
 
-        <div class="relative z-10 flex items-start gap-4">
-          <div class="w-11 h-11 rounded-xl bg-[#c0392b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c0392b] transition-all duration-300">
-            <i class="fa-solid fa-bullseye text-base text-[#c0392b] group-hover:text-white transition-all duration-300"></i>
+            <div class="relative z-10 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 transition-all duration-300">
+                <i class="fa-solid fa-bullseye text-base text-[#1e5fbf] transition-all duration-300"></i>
+              </div>
+
+              <div>
+                <p class="text-[10px] tracking-widest uppercase text-[#1e5fbf] font-semibold mb-1">Our Mission</p>
+                <h3 class="font-display text-lg mb-2 text-gray-900">Precision, Every Time</h3>
+                <p class="leading-6 text-gray-600 text-sm">
+                  To deliver high-quality tungsten carbide products fabricated to specifications, with stringent checks and on-time delivery.
+                </p>
+              </div>
+            </div>
+
+            <p class="absolute bottom-4 right-5 text-[11px] text-gray-400 hidden md:block">Hover to flip</p>
           </div>
 
-          <div>
-            <p class="text-[10px] tracking-widest uppercase text-[#c0392b] font-semibold mb-1">Our Mission</p>
-            <h3 class="font-display text-lg mb-2 text-gray-900">Precision, Every Time</h3>
-            <p class="leading-6 text-gray-600 text-sm">
-              To deliver high-quality tungsten carbide products fabricated to specifications, with stringent checks and on-time delivery.
+          <!-- BACK -->
+          <div class="flip-card-face flip-card-back relative bg-[#1e5fbf] p-6 rounded-xl border border-bordercol shadow-md overflow-hidden flex flex-col justify-center">
+            <div class="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center mb-4">
+              <i class="fa-solid fa-bullseye text-base text-white"></i>
+            </div>
+            <h3 class="font-display text-lg mb-2 text-white">How we deliver it</h3>
+            <p class="leading-6 text-white/85 text-sm">
+              Tight tolerances, in-house quality checks at every stage, and delivery dates we plan backward from — not promises we hope to keep.
             </p>
           </div>
+
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+  // Auto-flip on mobile: cards flip on their own when scrolled into view,
+  // and keep alternating on a timer while visible. Desktop keeps the hover flip.
+  (function () {
+    var isMobile = () => window.matchMedia('(max-width: 767px)').matches;
+    var cards = document.querySelectorAll('.flip-card-inner');
+    var timers = new Map();
+
+    function startAutoFlip(inner) {
+      if (timers.has(inner)) return;
+      var id = setInterval(function () {
+        inner.classList.toggle('is-flipped');
+      }, 3200);
+      timers.set(inner, id);
+    }
+
+    function stopAutoFlip(inner) {
+      if (timers.has(inner)) {
+        clearInterval(timers.get(inner));
+        timers.delete(inner);
+      }
+      inner.classList.remove('is-flipped');
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var inner = entry.target;
+        if (!isMobile()) return;
+        if (entry.isIntersecting) {
+          setTimeout(function () { startAutoFlip(inner); }, 400);
+        } else {
+          stopAutoFlip(inner);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    cards.forEach(function (inner) { observer.observe(inner); });
+
+    window.matchMedia('(max-width: 767px)').addEventListener('change', function () {
+      cards.forEach(function (inner) { stopAutoFlip(inner); });
+    });
+  })();
+</script>
 
 <!-- ===== EXPERIENCE ===== -->
 <section class="py-28 bg-white">
@@ -302,7 +394,7 @@
     <div class="reveal-up order-2 lg:order-1">
       <p class="dim-line mb-3"><span class="dim-num">03</span> Our Product Range</p>
       <h2 class="font-display text-2xl md:text-3xl mb-4 leading-tight text-gray-900">
-        Quality Checked, <span class="text-[#c0392b]">Delivered on Time</span>
+        Quality Checked, <span class="text-[#1e5fbf]">Delivered on Time</span>
       </h2>
       <p class="leading-6 mb-6 text-gray-600 text-sm">
         Fabricated to industrial standards with complete preference given to client specification — every category is checked for tensity, resistance and durability.
@@ -310,9 +402,9 @@
 
       <div class="space-y-3">
 
-        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#c0392b]/30 hover:shadow-md transition-all duration-300">
-          <div class="w-9 h-9 rounded-lg bg-[#c0392b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c0392b] transition-all duration-300">
-            <i class="fa-solid fa-circle-notch text-sm text-[#c0392b] group-hover:text-white transition-all duration-300"></i>
+        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#1e5fbf]/30 hover:shadow-md transition-all duration-300">
+          <div class="w-9 h-9 rounded-lg bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1e5fbf] transition-all duration-300">
+            <i class="fa-solid fa-circle-notch text-sm text-[#1e5fbf] group-hover:text-white transition-all duration-300"></i>
           </div>
           <div>
             <h4 class="font-display text-base text-gray-900 leading-tight">Tungsten Carbide Dies</h4>
@@ -320,9 +412,9 @@
           </div>
         </div>
 
-        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#c0392b]/30 hover:shadow-md transition-all duration-300">
-          <div class="w-9 h-9 rounded-lg bg-[#c0392b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c0392b] transition-all duration-300">
-            <i class="fa-solid fa-ring text-sm text-[#c0392b] group-hover:text-white transition-all duration-300"></i>
+        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#1e5fbf]/30 hover:shadow-md transition-all duration-300">
+          <div class="w-9 h-9 rounded-lg bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1e5fbf] transition-all duration-300">
+            <i class="fa-solid fa-ring text-sm text-[#1e5fbf] group-hover:text-white transition-all duration-300"></i>
           </div>
           <div>
             <h4 class="font-display text-base text-gray-900 leading-tight">Bush &amp; Guide Products</h4>
@@ -330,9 +422,9 @@
           </div>
         </div>
 
-        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#c0392b]/30 hover:shadow-md transition-all duration-300">
-          <div class="w-9 h-9 rounded-lg bg-[#c0392b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c0392b] transition-all duration-300">
-            <i class="fa-solid fa-gear text-sm text-[#c0392b] group-hover:text-white transition-all duration-300"></i>
+        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#1e5fbf]/30 hover:shadow-md transition-all duration-300">
+          <div class="w-9 h-9 rounded-lg bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1e5fbf] transition-all duration-300">
+            <i class="fa-solid fa-gear text-sm text-[#1e5fbf] group-hover:text-white transition-all duration-300"></i>
           </div>
           <div>
             <h4 class="font-display text-base text-gray-900 leading-tight">Custom Fabrication</h4>
@@ -342,7 +434,7 @@
 
       </div>
 
-      <a href="/products.html" class="inline-flex items-center gap-2 mt-6 bg-[#c0392b] hover:bg-[#a93226] text-white font-medium text-sm px-6 py-3 rounded-lg transition tracking-wide">
+      <a href="/products.html" class="inline-flex items-center gap-2 mt-6 bg-[#1e5fbf] hover:bg-[#1a4f9e] text-white font-medium text-sm px-6 py-3 rounded-lg transition tracking-wide">
         Explore Full Range
         <i class="fa-solid fa-arrow-right text-xs"></i>
       </a>
@@ -352,7 +444,7 @@
     <div class="reveal-right order-1 lg:order-2 relative">
       <div class="relative h-[340px] rounded-2xl overflow-hidden shadow-xl">
         <img
-          src="https://5.imimg.com/data5/SELLER/Default/2024/8/441423412/TP/QO/LZ/36451235/tungsten-carbide-ring-500x500.jpg"
+          src="/images/p1.webp"
           class="w-full h-full object-cover"
           alt="Tungsten Carbide Ring"
         >
@@ -360,13 +452,13 @@
 
         <!-- Floating Badge -->
         <div class="absolute bottom-4 left-4 bg-white/15 backdrop-blur-xl rounded-xl px-4 py-2.5 border border-white/25">
-          <p class="font-display text-xl text-white font-bold leading-none">3<span class="text-amber-400">+</span></p>
+          <p class="font-display text-xl text-white font-bold leading-none">3<span class="text-[#1e5fbf]">+</span></p>
           <p class="text-[9px] tracking-widest uppercase text-white/80 mt-0.5">Categories</p>
         </div>
       </div>
 
       <!-- Accent panel behind image -->
-      <div class="hidden lg:block absolute -bottom-5 -left-5 w-24 h-24 rounded-2xl bg-[#fce4e8] -z-10"></div>
+      <div class="hidden lg:block absolute -bottom-5 -left-5 w-24 h-24 rounded-2xl bg-[#e8f0fe] -z-10"></div>
     </div>
 
   </div>
@@ -380,26 +472,39 @@
       <h2 class="font-display text-4xl md:text-5xl">Core Values</h2>
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-group">
-      <div class="stagger-item text-center p-8">
-        <div class="icon-wrap mx-auto mb-5"><i class="fa-solid fa-industry"></i></div>
-        <h3 class="font-display text-lg mb-3">Quality First</h3>
-        <p class="text-sm leading-7">Stringent quality checks on tensity, resistance and durability across every product category.</p>
+      
+      <div class="stagger-item text-center p-8 bg-[#f5f0e8] rounded-2xl border border-[#e8ddd0] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+        <div class="icon-wrap mx-auto mb-5 bg-[#d4c5b2]/30 text-[#b8956e] hover:bg-[#b8956e] hover:text-white transition-all duration-300">
+          <i class="fa-solid fa-industry"></i>
+        </div>
+        <h3 class="font-display text-lg mb-3 text-gray-900">Quality First</h3>
+        <p class="text-sm leading-7 text-gray-600">Stringent quality checks on tensity, resistance and durability across every product category.</p>
       </div>
-      <div class="stagger-item text-center p-8">
-        <div class="icon-wrap mx-auto mb-5"><i class="fa-solid fa-pencil-ruler"></i></div>
-        <h3 class="font-display text-lg mb-3">Precision Fabrication</h3>
-        <p class="text-sm leading-7">Products fabricated to client drawings and industrial standards with complete preference to specifications.</p>
+      
+      <div class="stagger-item text-center p-8 bg-[#f5f0e8] rounded-2xl border border-[#e8ddd0] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+        <div class="icon-wrap mx-auto mb-5 bg-[#d4c5b2]/30 text-[#b8956e] hover:bg-[#b8956e] hover:text-white transition-all duration-300">
+          <i class="fa-solid fa-pencil-ruler"></i>
+        </div>
+        <h3 class="font-display text-lg mb-3 text-gray-900">Precision Fabrication</h3>
+        <p class="text-sm leading-7 text-gray-600">Products fabricated to client drawings and industrial standards with complete preference to specifications.</p>
       </div>
-      <div class="stagger-item text-center p-8">
-        <div class="icon-wrap mx-auto mb-5"><i class="fa-solid fa-clock"></i></div>
-        <h3 class="font-display text-lg mb-3">Timely Delivery</h3>
-        <p class="text-sm leading-7">Committed to on-time delivery to a growing client base across India and international markets.</p>
+      
+      <div class="stagger-item text-center p-8 bg-[#f5f0e8] rounded-2xl border border-[#e8ddd0] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+        <div class="icon-wrap mx-auto mb-5 bg-[#d4c5b2]/30 text-[#b8956e] hover:bg-[#b8956e] hover:text-white transition-all duration-300">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <h3 class="font-display text-lg mb-3 text-gray-900">Timely Delivery</h3>
+        <p class="text-sm leading-7 text-gray-600">Committed to on-time delivery to a growing client base across India and international markets.</p>
       </div>
-      <div class="stagger-item text-center p-8">
-        <div class="icon-wrap mx-auto mb-5"><i class="fa-solid fa-handshake"></i></div>
-        <h3 class="font-display text-lg mb-3">Client Trust</h3>
-        <p class="text-sm leading-7">Building long-term relationships through quality products and reliable service.</p>
+      
+      <div class="stagger-item text-center p-8 bg-[#f5f0e8] rounded-2xl border border-[#e8ddd0] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+        <div class="icon-wrap mx-auto mb-5 bg-[#d4c5b2]/30 text-[#b8956e] hover:bg-[#b8956e] hover:text-white transition-all duration-300">
+          <i class="fa-solid fa-handshake"></i>
+        </div>
+        <h3 class="font-display text-lg mb-3 text-gray-900">Client Trust</h3>
+        <p class="text-sm leading-7 text-gray-600">Building long-term relationships through quality products and reliable service.</p>
       </div>
+      
     </div>
   </div>
 </section>
@@ -412,7 +517,7 @@
     <div class="reveal-left relative">
       <div class="relative h-[340px] rounded-2xl overflow-hidden shadow-xl">
         <img
-          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1000&q=80"
+          src="/images/b1.png"
           class="w-full h-full object-cover"
           alt="Precision manufacturing"
         >
@@ -420,48 +525,48 @@
 
         <!-- Floating Badge -->
         <div class="absolute bottom-4 left-4 bg-white/15 backdrop-blur-xl rounded-xl px-4 py-2.5 border border-white/25">
-          <p class="font-display text-xl text-white font-bold leading-none">4.8<span class="text-amber-400">★</span></p>
+          <p class="font-display text-xl text-white font-bold leading-none">4.8<span class="text-[#1e5fbf]">★</span></p>
           <p class="text-[9px] tracking-widest uppercase text-white/80 mt-0.5">Client Rating</p>
         </div>
       </div>
 
       <!-- Accent panel behind image -->
-      <div class="hidden lg:block absolute -bottom-5 -right-5 w-24 h-24 rounded-2xl bg-[#fce4e8] -z-10"></div>
+      <div class="hidden lg:block absolute -bottom-5 -right-5 w-24 h-24 rounded-2xl bg-[#e8f0fe] -z-10"></div>
     </div>
 
     <!-- CONTENT SIDE -->
     <div class="reveal-up">
       <p class="dim-line mb-3"><span class="dim-num">05</span> Why Choose Us</p>
       <h2 class="font-display text-2xl md:text-3xl mb-6 leading-tight text-gray-900">
-        Quality Products from a <span class="text-[#c0392b]">Trusted Manufacturer</span>
+        Quality Products from a <span class="text-[#1e5fbf]">Trusted Manufacturer</span>
       </h2>
 
       <div class="space-y-3">
 
-        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#c0392b]/30 hover:shadow-md transition-all duration-300">
-          <div class="w-9 h-9 rounded-lg bg-[#c0392b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c0392b] transition-all duration-300">
-            <i class="fa-solid fa-calendar-check text-sm text-[#c0392b] group-hover:text-white transition-all duration-300"></i>
+        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#1e5fbf]/30 hover:shadow-md transition-all duration-300">
+          <div class="w-9 h-9 rounded-lg bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1e5fbf] transition-all duration-300">
+            <i class="fa-solid fa-calendar-check text-sm text-[#1e5fbf] group-hover:text-white transition-all duration-300"></i>
           </div>
           <p class="text-sm text-gray-700">Established in 2005 with 15+ years of manufacturing experience</p>
         </div>
 
-        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#c0392b]/30 hover:shadow-md transition-all duration-300">
-          <div class="w-9 h-9 rounded-lg bg-[#c0392b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c0392b] transition-all duration-300">
-            <i class="fa-solid fa-industry text-sm text-[#c0392b] group-hover:text-white transition-all duration-300"></i>
+        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#1e5fbf]/30 hover:shadow-md transition-all duration-300">
+          <div class="w-9 h-9 rounded-lg bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1e5fbf] transition-all duration-300">
+            <i class="fa-solid fa-industry text-sm text-[#1e5fbf] group-hover:text-white transition-all duration-300"></i>
           </div>
           <p class="text-sm text-gray-700">1000+ products manufactured with stringent quality checks</p>
         </div>
 
-        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#c0392b]/30 hover:shadow-md transition-all duration-300">
-          <div class="w-9 h-9 rounded-lg bg-[#c0392b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c0392b] transition-all duration-300">
-            <i class="fa-solid fa-drafting-compass text-sm text-[#c0392b] group-hover:text-white transition-all duration-300"></i>
+        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#1e5fbf]/30 hover:shadow-md transition-all duration-300">
+          <div class="w-9 h-9 rounded-lg bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1e5fbf] transition-all duration-300">
+            <i class="fa-solid fa-drafting-compass text-sm text-[#1e5fbf] group-hover:text-white transition-all duration-300"></i>
           </div>
           <p class="text-sm text-gray-700">Custom fabrication as per client drawings &amp; specifications</p>
         </div>
 
-        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#c0392b]/30 hover:shadow-md transition-all duration-300">
-          <div class="w-9 h-9 rounded-lg bg-[#c0392b]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c0392b] transition-all duration-300">
-            <i class="fa-solid fa-star text-sm text-[#c0392b] group-hover:text-white transition-all duration-300"></i>
+        <div class="group flex items-center gap-4 bg-white p-4 rounded-lg border border-bordercol hover:border-[#1e5fbf]/30 hover:shadow-md transition-all duration-300">
+          <div class="w-9 h-9 rounded-lg bg-[#1e5fbf]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1e5fbf] transition-all duration-300">
+            <i class="fa-solid fa-star text-sm text-[#1e5fbf] group-hover:text-white transition-all duration-300"></i>
           </div>
           <p class="text-sm text-gray-700">4.8★ rating with 32+ reviews on IndiaMART</p>
         </div>
@@ -478,7 +583,7 @@
 
         <div class="relative rounded-[30px] overflow-hidden min-h-[350px] shadow-2xl">
 
-            <img src="https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-500x500.jpg"
+            <img src="/images/hb1.jpg"
                 alt="Tungsten Carbide Tooling"
                 class="absolute inset-0 w-full h-full object-cover">
 
