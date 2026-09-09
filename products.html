@@ -357,12 +357,114 @@
 </script>
 
 <!-- ===== BANNER ===== -->
-<section class="page-banner bg-cover bg-center" style="background-image:url('/images/hb1.jpg')">
-  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center">
+<section class="page-banner bg-cover bg-center relative flex items-center" style="background-image:url('/images/hb1.jpg')">
+  <!-- Light overlay -->
+  <div class="absolute inset-0" style="background:rgba(0,0,0,0.25)"></div>
+  
+  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center relative z-10">
     <p class="dim-line justify-center mb-5"><span class="dim-num">—</span> Our Catalogue</p>
-    <h1 class="font-display">Products</h1>
+    <h1 class="font-display glass-heading">Products</h1>
   </div>
 </section>
+
+<!-- Font Styles for Page Banner -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  .page-banner * {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .page-banner {
+    min-height: 50vh;
+    background-color: #1a1a1a;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-banner::after {
+    content: none !important;
+    background: none !important;
+  }
+
+  .page-banner .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-banner .dim-line {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 400;
+    opacity: 0.85;
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .page-banner .dim-num {
+    color: #fbbf24;
+    margin-right: 0.5rem;
+    font-weight: 600;
+  }
+
+  .page-banner .font-display {
+    font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0;
+    font-size: 5rem;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+
+  .page-banner .font-display em {
+    color: #fbbf24;
+    font-style: italic;
+    font-weight: 400;
+    font-family: 'DM Serif Display', Georgia, serif;
+    text-shadow: 0 0 40px rgba(251, 191, 36, 0.2);
+  }
+
+  /* Glass effect for heading */
+  .glass-heading {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 8px 35px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+  }
+
+  @media (max-width: 768px) {
+    .page-banner .font-display {
+      font-size: 3.2rem;
+    }
+    .page-banner .dim-line {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+    }
+    .glass-heading {
+      padding: 6px 25px;
+      border-radius: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page-banner .font-display {
+      font-size: 2.5rem;
+    }
+    .glass-heading {
+      padding: 4px 18px;
+      border-radius: 10px;
+    }
+  }
+</style>
 
 <!-- Font Styles for Page Banner -->
 <style>

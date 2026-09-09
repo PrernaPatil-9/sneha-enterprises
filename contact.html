@@ -33,10 +33,13 @@
 </script>
 
 <!-- ===== PAGE BANNER ===== -->
-<section class="page-banner bg-cover bg-center" style="background-image:url('https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-500x500.jpg')">
-  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center">
+<section class="page-banner bg-cover bg-center relative flex items-center" style="background-image:url('/images/i1.png')">
+  <!-- Light overlay for better readability -->
+  <div class="absolute inset-0" style="background:rgba(0,0,0,0.3)"></div>
+  
+  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center relative z-10">
     <p class="dim-line justify-center mb-5"><span class="dim-num">—</span> Get In Touch</p>
-    <h1 class="font-display">Contact Us</h1>
+    <h1 class="font-display glass-heading">Contact Us</h1>
   </div>
 </section>
 
@@ -57,12 +60,10 @@
     justify-content: center;
   }
 
-  .page-banner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: none;
-    z-index: 1;
+  .page-banner::before,
+  .page-banner::after {
+    content: none !important;
+    background: none !important;
   }
 
   .page-banner .container {
@@ -105,6 +106,18 @@
     text-shadow: 0 0 40px rgba(251, 191, 36, 0.2);
   }
 
+  /* Glass effect for heading */
+  .glass-heading {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 8px 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+  }
+
   @media (max-width: 768px) {
     .page-banner .font-display {
       font-size: 3.2rem;
@@ -113,11 +126,19 @@
       font-size: 0.75rem;
       letter-spacing: 0.3em;
     }
+    .glass-heading {
+      padding: 6px 30px;
+      border-radius: 12px;
+    }
   }
 
   @media (max-width: 480px) {
     .page-banner .font-display {
       font-size: 2.5rem;
+    }
+    .glass-heading {
+      padding: 4px 20px;
+      border-radius: 10px;
     }
   }
 </style>

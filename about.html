@@ -41,7 +41,7 @@
     <p class="dim-line justify-center mb-5 text-white/70 text-xs tracking-[0.2em] uppercase font-light">
       <span class="dim-num">—</span> Product Gallery
     </p>
-    <h1 class="font-bold tracking-tight text-white text-5xl md:text-6xl lg:text-7xl leading-[1.05]">
+    <h1 class="font-bold tracking-tight text-white text-5xl md:text-6xl lg:text-7xl leading-[1.05] glass-heading">
       Tungsten Carbide<br>
       <em class="text-amber-400 not-italic font-bold">Product Range</em>
     </h1>
@@ -94,6 +94,33 @@
 
   .dim-num {
     opacity: 0.5;
+  }
+
+  /* Single glass effect for entire heading */
+  .glass-heading {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .glass-heading {
+      padding: 10px 20px;
+      border-radius: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .glass-heading {
+      padding: 8px 16px;
+      border-radius: 10px;
+    }
   }
 </style>
 
