@@ -59,28 +59,28 @@
 
 <!-- ===== MOBILE MENU ===== -->
 <div id="mobile-menu">
-  <button id="menu-close" class="absolute top-8 right-8 text-white text-3xl">
+  <button id="menu-close" class="absolute top-8 right-8 text-white text-3xl z-50">
     <i class="fa-solid fa-xmark"></i>
   </button>
 
-  <div class="h-full flex flex-col items-center justify-center gap-8">
+  <div class="h-full w-full flex flex-col items-center justify-start gap-6 overflow-y-auto pt-24 pb-16 px-6">
 
-    <a href="index.html" class="mb-6">
+    <a href="index.html" class="mb-4 shrink-0">
       <img
-        src="/images/Logo-removebg-preview.png"
+        src="/images/logo.png"
         alt="Sneha Enterprises"
         class="h-12 w-auto object-contain"
       >
     </a>
 
-    <a href="index.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">Home</a>
-    <a href="about.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">About</a>
+    <a href="index.html" class="nav-link font-display text-3xl text-white lg:text-gray-800 shrink-0">Home</a>
+    <a href="about.html" class="nav-link font-display text-3xl text-white lg:text-gray-800 shrink-0">About</a>
     <!-- <a href="services.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">Services</a> -->
     
     <!-- Mobile Products with dropdown -->
-    <div class="w-full max-w-xs text-center">
+    <div class="w-full max-w-xs text-center shrink-0">
       <div class="flex items-center justify-center gap-2">
-        <a href="projects.html" class="nav-link font-display text-3xl text-white lg:text-gray-800" id="mobileProductsLink">Products</a>
+        <a href="/products.html" class="nav-link font-display text-3xl text-white lg:text-gray-800" id="mobileProductsLink">Products</a>
         <button class="text-white/70 hover:text-white focus:outline-none" id="mobileProductsBtn">
           <svg class="w-6 h-6 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -88,20 +88,21 @@
         </button>
       </div>
       <div id="mobileProductsMenu" class="mt-2 space-y-2 max-h-0 overflow-hidden transition-all duration-300">
-        <a href="projects.html#tungsten-carbide-dies" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Dies</a>
-        <a href="projects.html#tungsten-carbide-bush" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Bush</a>
-        <a href="projects.html#tungsten-carbide-ring" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Ring</a>
-        <a href="projects.html#tungsten-carbide" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide</a>
-        <a href="projects.html#tablet-punches-dies" class="block text-center text-white/80 hover:text-white text-sm py-1">Tablet Punches &amp; Dies</a>
-        <a href="projects.html#tungsten-carbide-wear-parts" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Wear Parts</a>
-        <a href="projects.html#tungsten-carbide-cold-forging-tools" class="block text-center text-white/80 hover:text-white text-sm py-1">TUNGSTEN CARBIDE COLD FORGING TOOLS</a>
+        <a href="/products.html" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Dies</a>
+        <a href="/products.html" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Bush</a>
+        <a href="/products.html" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Ring</a>
+        <a href="/products.html" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide</a>
+        <a href="/products.html" class="block text-center text-white/80 hover:text-white text-sm py-1">Tablet Punches &amp; Dies</a>
+        <a href="/products.html" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Wear Parts</a>
+        <a href="/products.html" class="block text-center text-white/80 hover:text-white text-sm py-1">Tungsten Carbide Cold Forging Tools</a>
+        <a href="/customize.html" class="block text-center text-white/80 hover:text-white text-sm py-1">Customize Products</a>
       </div>
     </div>
     
-    <a href="contact.html" class="nav-link font-display text-3xl text-white lg:text-gray-800">Contact</a>
+    <a href="contact.html" class="nav-link font-display text-3xl text-white lg:text-gray-800 shrink-0">Contact</a>
 
     <!-- Mobile CTA -->
-    <a href="contact.html" class="btn mt-4" style="background:#1e5fbf;color:#fff;">
+    <a href="contact.html" class="btn mt-4 shrink-0" style="background:#1e5fbf;color:#fff;">
       Get a Quote
     </a>
 
