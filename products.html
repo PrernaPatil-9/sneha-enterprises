@@ -340,32 +340,6 @@
     }
   }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-</head>
-<body class="font-body">
-
-<!-- Header included from common/header.html -->
-<div id="header-placeholder"></div>
-<script>
-  fetch('/components/header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-placeholder').innerHTML = data;
-    })
-    .catch(error => console.error('Error loading header:', error));
-</script>
-
-<!-- ===== BANNER ===== -->
-<section class="page-banner bg-cover bg-center relative flex items-center" style="background-image:url('/images/hb1.jpg')">
-  <!-- Light overlay -->
-  <div class="absolute inset-0" style="background:rgba(0,0,0,0.25)"></div>
-  
-  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center relative z-10">
-    <p class="dim-line justify-center mb-5"><span class="dim-num">—</span> Our Catalogue</p>
-    <h1 class="font-display glass-heading">Products</h1>
-  </div>
-</section>
 
 <!-- Font Styles for Page Banner -->
 <style>
@@ -466,84 +440,32 @@
   }
 </style>
 
-<!-- Font Styles for Page Banner -->
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-body">
 
-  .page-banner * {
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
+<!-- Header included from common/header.html -->
+<div id="header-placeholder"></div>
+<script>
+  fetch('/components/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading header:', error));
+</script>
 
-  .page-banner {
-    min-height: 50vh;
-    background-color: #1a1a1a;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .page-banner::after {
-    content: none !important;
-    background: none !important;
-  }
-
-  .page-banner .container {
-    position: relative;
-    z-index: 2;
-  }
-
-  .page-banner .dim-line {
-    font-size: 0.8rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-weight: 400;
-    opacity: 0.85;
-    color: #ffffff;
-    font-family: 'Space Grotesk', sans-serif;
-  }
-
-  .page-banner .dim-num {
-    color: #fbbf24;
-    margin-right: 0.5rem;
-    font-weight: 600;
-  }
-
-  .page-banner .font-display {
-    font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-    color: #ffffff;
-    margin: 0;
-    font-size: 5rem;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
-  }
-
-  .page-banner .font-display em {
-    color: #fbbf24;
-    font-style: italic;
-    font-weight: 400;
-    font-family: 'DM Serif Display', Georgia, serif;
-    text-shadow: 0 0 40px rgba(251, 191, 36, 0.2);
-  }
-
-  @media (max-width: 768px) {
-    .page-banner .font-display {
-      font-size: 3.2rem;
-    }
-    .page-banner .dim-line {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .page-banner .font-display {
-      font-size: 2.5rem;
-    }
-  }
-</style>
+<!-- ===== BANNER ===== -->
+<section class="page-banner bg-cover bg-center relative flex items-center" style="background-image:url('/images/hb1.jpg')">
+  <!-- Light overlay -->
+  <div class="absolute inset-0" style="background:rgba(0,0,0,0.25)"></div>
+  
+  <div class="container max-w-7xl mx-auto px-6 lg:px-10 text-center relative z-10">
+    <p class="dim-line justify-center mb-5"><span class="dim-num">—</span> Our Catalogue</p>
+    <h1 class="font-display glass-heading">Products</h1>
+  </div>
+</section>
 
 <!-- ===== PRODUCTS ===== -->
 <section class="py-24 bg-white">
@@ -553,10 +475,20 @@
       <button class="filter-btn" data-filter="tungsten-carbide-dies">Dies</button>
       <button class="filter-btn" data-filter="tungsten-carbide-bush">Bush</button>
       <button class="filter-btn" data-filter="tungsten-carbide-ring">Ring</button>
-      <button class="filter-btn" data-filter="tablet-punches-dies">Tablet Tooling</button>
-      <button class="filter-btn" data-filter="tungsten-carbide-wear-parts">Wear Parts</button>
-      <button class="filter-btn" data-filter="tungsten-carbide-cold-forging-tools">Cold Forging</button>
-      <button class="filter-btn" data-filter="slitting-cutter">Slitting Cutters</button>
+      <button class="filter-btn" data-filter="tungsten-carbide-punches">Punches</button>
+      <button class="filter-btn" data-filter="tungsten-carbide-rollers">Rollers</button>
+      <button class="filter-btn" data-filter="tungsten-carbide-tools">Tools</button>
+      <button class="filter-btn" data-filter="drawing-sizing-dies">Drawing &amp; Sizing Dies</button>
+      <button class="filter-btn" data-filter="forming-heading-dies">Forming &amp; Heading Dies</button>
+      <button class="filter-btn" data-filter="profile-draw-dies">Profile Draw Dies</button>
+      <button class="filter-btn" data-filter="extrusion-dies">Extrusion Dies</button>
+      <button class="filter-btn" data-filter="wire-guide-dies">Wire Guide Dies</button>
+      <button class="filter-btn" data-filter="spray-nozzles">Spray Nozzles</button>
+      <button class="filter-btn" data-filter="sealing-rings">Sealing Rings</button>
+      <button class="filter-btn" data-filter="compaction-rollers">Compaction Rollers</button>
+      <button class="filter-btn" data-filter="customized-components">Customized Components</button>
+      <button class="filter-btn" data-filter="wear-parts">Wear Parts</button>
+      <button class="filter-btn" data-filter="precision-grinding-gauges">Precision Grinding Gauges</button>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
@@ -591,9 +523,6 @@
       <a href="contact.html" class="btn-modal">
         <i class="fa-solid fa-envelope"></i> Get a Quote
       </a>
-      <a href="services.html" class="btn-modal-outline">
-        <i class="fa-solid fa-arrow-right"></i> Explore Services
-      </a>
     </div>
   </div>
 </div>
@@ -613,63 +542,142 @@
 <button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i><svg width="52" height="52" viewBox="0 0 52 52"><circle cx="26" cy="26" r="23"></circle></svg></button>
 
 <script>
-  // ===== PRODUCT DATA =====
+  // ===== PRODUCT DATA — exactly as requested =====
   const SNEHA_PRODUCT_CATEGORIES = [
     {
       id: "tungsten-carbide-dies",
       name: "Tungsten Carbide Dies",
-      count: 21,
+      count: 1,
       products: [
-        { id: "tc-die-19664140555", name: "Tungsten Carbide Die", image: "/images/p1.webp", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Country of Origin: Made in India"], description: "A best-fit collection of Tungsten Carbide Dies catering to precise customer specifications. Safe, easy to use, compact and tamper proof with leak-proof packaging at an economical rate." },
-        { id: "tc-sizing-die-19632949962", name: "Tungsten Carbide Sizing Die", image: "/images/pi1.jpeg", specs: ["Color: Silver", "Material: Tungsten Carbide", "Surface Finishing: Gloss", "Country of Origin: Made in India"], description: "Tungsten carbide dies are the foremost choice in wire-industry drawing equipment when an economical option is desired over better wear resistance and wire surface finish." }
+        { id: "tc-die-01", name: "Tungsten Carbide Dies", image: "/images/p1.webp", specs: ["Usage/Application: Industrial", "Pattern Type: Round", "Shape: Round", "Country of Origin: Made in India"], description: "A best-fit collection of Tungsten Carbide Dies catering to precise customer specifications. Safe, easy to use, compact and tamper proof with leak-proof packaging at an economical rate." }
+      ]
+    },
+    {
+      id: "tungsten-carbide-bush",
+      name: "Tungsten Carbide Bushes",
+      count: 1,
+      products: [
+        { id: "tc-bush-01", name: "Tungsten Carbide Bushes", image: "/images/pi1.jpeg", specs: ["Material: Tungsten Carbide", "Surface Finishing: Gloss", "Country of Origin: Made in India"], description: "Precision tungsten carbide bushes manufactured for high wear resistance and extended service life in demanding industrial applications." }
       ]
     },
     {
       id: "tungsten-carbide-ring",
-      name: "Tungsten Carbide Ring",
-      count: 8,
+      name: "Tungsten Carbide Rings",
+      count: 1,
       products: [
-        { id: "tc-ring-16471587548", name: "Tungsten Carbide Ring", image: "/images/pi3.webp", specs: ["Country of Origin: Made in India"], description: "Manufactured with tensity, resistance and durability tested as per industrial parameters." }
+        { id: "tc-ring-01", name: "Tungsten Carbide Rings", image: "/images/pi3.webp", specs: ["Country of Origin: Made in India"], description: "Manufactured with tensity, resistance and durability tested as per industrial parameters." }
       ]
     },
     {
-      id: "tablet-punches-dies",
-      name: "Tablet Punches & Dies",
-      count: 4,
+      id: "tungsten-carbide-punches",
+      name: "Tungsten Carbide Punches",
+      count: 1,
       products: [
-        { id: "tc-tablet-dies-23022343673", name: "T C Tablet Dies", price: "₹ 1,150 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441598408/RJ/MO/KK/36451235/t-c-tablet-dies-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Tablet compression dies manufactured to pharmaceutical industry tolerances." },
-        { id: "tc-pharma-dies-23022330091", name: "TC Pharmaceutical Dies", price: "₹ 1,230 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441578187/MD/XX/JM/36451235/tc-pharmaceutical-dies-125x125.png", specs: ["Country of Origin: Made in India"], description: "Pharmaceutical grade dies manufactured with stringent quality checks." },
-        { id: "tc-bush-22973540512", name: "T C Bush", price: "₹ 2,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2020/12/NF/QF/XQ/36451235/tc-tablet-die-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Precision bush for tablet compression tooling." },
-        { id: "tc-tablet-dies-punch-23022317762", name: "TC Tablet Dies and Punch", price: "₹ 2,560 / Set", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441407588/KI/AT/AJ/36451235/tc-tablet-dies-and-punch-125x125.png", specs: ["Country of Origin: Made in India"], description: "Matched die and punch set for tablet compression as per your drawings." }
+        { id: "tc-punch-01", name: "Tungsten Carbide Punches", image: "/images/p4.webp", specs: ["Country of Origin: Made in India"], description: "Tungsten carbide punches designed for precision tablet compression and industrial punching operations." }
       ]
     },
     {
-      id: "tungsten-carbide-wear-parts",
-      name: "Tungsten Carbide Wear Parts",
-      count: 5,
+      id: "tungsten-carbide-rollers",
+      name: "Tungsten Carbide Rollers",
+      count: 1,
       products: [
-        { id: "tc-nozzle-22060640155", name: "Tungsten Carbide Nozzle", price: "₹ 4,500 / Piece", image: "https://5.imimg.com/data5/LM/NI/RV/SELLER-36451235/tungsten-carbiden-valve-125x125.jpeg", specs: ["Country of Origin: Made in India"], description: "Manufactured for demanding industrial wear applications." },
-        { id: "tc-seal-rings-21143481988", name: "Tungsten Carbide Seal Rings", price: "₹ 2,150 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441424796/HK/LE/QI/36451235/tungsten-carbide-seal-rings-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Seal rings manufactured with rigorous quality control." },
-        { id: "tc-wear-parts-23174775130", name: "Tungsten Carbide Wear Parts", price: "₹ 3,450 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441428604/FE/BI/AK/36451235/tungsten-carbide-wear-parts-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Wide range of best quality wear parts offered at market leading prices." }
+        { id: "tc-roller-01", name: "Tungsten Carbide Rollers", image: "/images/p5.jpg", specs: ["Country of Origin: Made in India"], description: "Tungsten carbide rollers for compaction, rolling, and high-load industrial applications." }
       ]
     },
     {
-      id: "tungsten-carbide-cold-forging-tools",
-      name: "TUNGSTEN CARBIDE COLD FORGING TOOLS",
-      count: 3,
+      id: "tungsten-carbide-tools",
+      name: "Tungsten Carbide Tools",
+      count: 1,
       products: [
-        { id: "tc-seal-ring-23107088397", name: "T C SEAL RING", price: "₹ 2,150 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441577668/QH/NZ/XT/36451235/cold-forging-tools-125x125.png", specs: ["Country of Origin: Made in India"], description: "Seal ring designed for cold forging tooling applications." },
-        { id: "cold-forming-tooling-23107093355", name: "Cold Forming Tooling", price: "₹ 2,250 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441414984/JF/QY/ZU/36451235/cold-forming-tooling-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Tooling manufactured for cold forming operations." },
-        { id: "cold-forging-tools-23107097197", name: "Cold Forging Tools", price: "₹ 1,260 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2025/5/512199014/IS/SN/UC/36451235/cold-forging-tools-125x125.webp", specs: ["Country of Origin: Made in India"], description: "Durable cold forging tools built for industrial production lines." }
+        { id: "tc-tool-01", name: "Tungsten Carbide Tools", image: "/images/p6.png", specs: ["Country of Origin: Made in India"], description: "A comprehensive range of tungsten carbide tools for cutting, forming, and machining applications." }
       ]
     },
     {
-      id: "slitting-cutter",
-      name: "Slitting Cutter",
-      count: 2,
+      id: "drawing-sizing-dies",
+      name: "Drawing & Sizing Dies",
+      count: 1,
       products: [
-        { id: "slitting-cutter-27098163691", name: "Slitting Cutter", price: "₹ 2,030 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441418296/DR/SC/PS/36451235/slitting-cutter-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Precision slitting cutter manufactured for industrial cutting operations." },
-        { id: "carbide-slitting-cutter-27098179012", name: "Carbide Slitting Cutter", price: "₹ 2,500 / Piece", image: "https://5.imimg.com/data5/SELLER/Default/2024/8/441428222/GW/YL/WH/36451235/carbide-slitting-cutter-125x125.jpg", specs: ["Country of Origin: Made in India"], description: "Carbide-tipped slitting cutter built for durability under continuous use." }
+        { id: "tc-draw-size-01", name: "Drawing &amp; Sizing Dies", image: "/images/p7.jpg", specs: ["Country of Origin: Made in India"], description: "Tungsten carbide drawing and sizing dies for wire, rod, and tube manufacturing with precise dimensional control." }
+      ]
+    },
+    {
+      id: "forming-heading-dies",
+      name: "Forming & Heading Dies",
+      count: 1,
+      products: [
+        { id: "tc-forming-01", name: "Forming &amp; Heading Dies", image: "/images/p8.png", specs: ["Country of Origin: Made in India"], description: "Forming and heading dies manufactured for cold forming, hot forging, and fastener production." }
+      ]
+    },
+    {
+      id: "profile-draw-dies",
+      name: "Profile Draw Dies",
+      count: 1,
+      products: [
+        { id: "tc-profile-01", name: "Profile Draw Dies", image: "/images/p9.png", specs: ["Country of Origin: Made in India"], description: "Profile draw dies for shaping complex cross-sections in wire and tube drawing operations." }
+      ]
+    },
+    {
+      id: "extrusion-dies",
+      name: "Extrusion Dies",
+      count: 1,
+      products: [
+        { id: "tc-extrusion-01", name: "Extrusion Dies", image: "/images/p10.jpg", specs: ["Country of Origin: Made in India"], description: "Extrusion dies for plastics, rubber, and metal extrusion with high abrasion resistance." }
+      ]
+    },
+    {
+      id: "wire-guide-dies",
+      name: "Wire Guide Dies",
+      count: 1,
+      products: [
+        { id: "tc-wire-guide-01", name: "Wire Guide Dies", image: "/images/p11.avif", specs: ["Country of Origin: Made in India"], description: "Wire guide dies for precise wire alignment and guiding in high-speed drawing and stranding operations." }
+      ]
+    },
+    {
+      id: "spray-nozzles",
+      name: "Spray Nozzles",
+      count: 1,
+      products: [
+        { id: "tc-spray-01", name: "Spray Nozzles", image: "/images/p12.webp", specs: ["Country of Origin: Made in India"], description: "Tungsten carbide spray nozzles for abrasive and high-pressure spraying applications." }
+      ]
+    },
+    {
+      id: "sealing-rings",
+      name: "Sealing Rings",
+      count: 1,
+      products: [
+        { id: "tc-seal-01", name: "Sealing Rings", image: "/images/p13.jpg", specs: ["Country of Origin: Made in India"], description: "Tungsten carbide sealing rings for pumps, compressors, and rotating equipment with minimal leakage." }
+      ]
+    },
+    {
+      id: "compaction-rollers",
+      name: "Compaction Rollers",
+      count: 1,
+      products: [
+        { id: "tc-compaction-01", name: "Compaction Rollers", image: "/images/p14.webp", specs: ["Country of Origin: Made in India"], description: "Compaction rollers for briquetting, granulating, and powder compaction processes." }
+      ]
+    },
+    {
+      id: "customized-components",
+      name: "Customized Tungsten Carbide Components",
+      count: 1,
+      products: [
+        { id: "tc-custom-01", name: "Customized Tungsten Carbide Components", image: "/images/p15.jpg", specs: ["Country of Origin: Made in India"], description: "Custom-designed tungsten carbide components manufactured to your exact drawings and specifications." }
+      ]
+    },
+    {
+      id: "wear-parts",
+      name: "All Types of Tungsten Carbide Wear Parts",
+      count: 1,
+      products: [
+        { id: "tc-wear-01", name: "All Types of Tungsten Carbide Wear Parts", image: "/images/p16.webp", specs: ["Country of Origin: Made in India"], description: "A wide range of tungsten carbide wear parts including nozzles, seal rings, guides, and custom wear components." }
+      ]
+    },
+    {
+      id: "precision-grinding-gauges",
+      name: "Precision Grinding Gauges",
+      count: 1,
+      products: [
+        { id: "tc-gauge-01", name: "Precision Grinding Gauges", image: "/images/p17.avif", specs: ["Country of Origin: Made in India"], description: "Precision grinding gauges for accurate dimensional inspection and quality control in manufacturing." }
       ]
     }
   ];
