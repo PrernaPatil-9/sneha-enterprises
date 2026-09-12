@@ -178,13 +178,14 @@
 </section>
 
 <!-- ===== FORM + MAP ===== -->
-<section class="pb-28 bg-[#faf7f2]"> <!-- lighter beige background -->
+<section class="pb-28 bg-[#faf7f2]">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16">
     <div class="reveal-left">
       <p class="dim-line mb-5"><span class="dim-num">01</span> Send An Enquiry</p>
       <h2 class="font-display text-4xl mb-8 text-gray-900">Tell us about your requirement</h2>
       <p class="text-sm text-gray-600 mb-6">Share your product requirement, drawing or specification — we'll get back to you with a quote.</p>
-      <form id="contact-form" class="space-y-8">
+      
+      <form id="contact-form" class="space-y-8" onsubmit="sendToWhatsApp(event)">
         <div class="grid md:grid-cols-2 gap-8">
           <input id="c-name" type="text" placeholder="Full Name" class="form-input border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-2 text-gray-800 bg-white/80 rounded-t-lg" required>
           <input id="c-email" type="email" placeholder="Email Address" class="form-input border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-2 text-gray-800 bg-white/80 rounded-t-lg" required>
@@ -204,13 +205,16 @@
           </select>
         </div>
         <textarea id="c-message" rows="5" placeholder="Tell us about your product requirement, quantity, specifications and any drawings you have" class="form-input border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-2 text-gray-800 bg-white/80 rounded-t-lg" required></textarea>
+        
         <button type="submit" class="bg-[#1e5fbf] hover:bg-[#1a4f9e] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center gap-3 shadow-lg shadow-[#1e5fbf]/25 hover:shadow-xl hover:shadow-[#1e5fbf]/40">
           Send Enquiry <i class="fa-solid fa-paper-plane"></i>
         </button>
+        
         <p id="form-msg" class="mt-4 text-sm"></p>
-        <p class="text-xs text-gray-500 mt-2">* This is a frontend-only form. Please also call or WhatsApp us for a faster response.</p>
+        <p class="text-xs text-gray-500 mt-2">* This form sends your enquiry directly to our WhatsApp. You can also call us at <strong>8048202874</strong> for a faster response.</p>
       </form>
     </div>
+    
     <div class="reveal-right dim-corner">
       <iframe
         src="https://www.google.com/maps?q=Pune,Maharashtra,India&output=embed"
@@ -223,6 +227,59 @@
   </div>
 </section>
 
+<script>
+  // WhatsApp number where form submissions will be sent (India country code +91)
+  const WHATSAPP_NUMBER = '918048202874';
+
+  function sendToWhatsApp(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Collect form values
+    const name = document.getElementById('c-name').value.trim();
+    const email = document.getElementById('c-email').value.trim();
+    const phone = document.getElementById('c-phone').value.trim();
+    const serviceSelect = document.getElementById('c-service');
+    const service = serviceSelect.options[serviceSelect.selectedIndex]?.text || 'Not specified';
+    const message = document.getElementById('c-message').value.trim();
+    const msgElement = document.getElementById('form-msg');
+
+    // Basic validation (HTML required also handles this, but double-check)
+    if (!name || !email || !phone || !message) {
+      msgElement.textContent = 'Please fill in all required fields.';
+      msgElement.className = 'mt-4 text-sm text-red-600';
+      return;
+    }
+
+    // Build the WhatsApp message text
+    const whatsappMessage = 
+      `*New Enquiry from Sneha Enterprises Website*%0A%0A` +
+      `*Name:* ${encodeURIComponent(name)}%0A` +
+      `*Email:* ${encodeURIComponent(email)}%0A` +
+      `*Phone:* ${encodeURIComponent(phone)}%0A` +
+      `*Product Category:* ${encodeURIComponent(service)}%0A` +
+      `*Message:* ${encodeURIComponent(message)}`;
+
+    // Create the WhatsApp API URL
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+
+    // Show a confirmation message to the user
+    msgElement.textContent = '✅ Opening WhatsApp with your enquiry...';
+    msgElement.className = 'mt-4 text-sm text-green-600';
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+
+    // Optionally reset the form after a short delay
+    setTimeout(() => {
+      document.getElementById('contact-form').reset();
+      msgElement.textContent = 'Enquiry sent via WhatsApp. We will respond shortly.';
+      msgElement.className = 'mt-4 text-sm text-green-600';
+    }, 1500);
+
+    // Fallback: If the popup is blocked, you can use:
+    // window.location.href = whatsappUrl;
+  }
+</script>
 <!-- ===== FOOTER ===== -->
 <div id="footer-placeholder"></div>
 <script>
