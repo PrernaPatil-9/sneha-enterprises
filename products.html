@@ -438,6 +438,28 @@
       border-radius: 10px;
     }
   }
+
+  /* 2x2 image grid — only for precision grinding gauges card */
+.product-image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+.product-image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: none; /* prevent double-zoom from parent rule */
+}
+.product-item:hover .product-image-grid {
+  transform: scale(1.03);
+}
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -677,7 +699,7 @@
       name: "Precision Grinding Gauges",
       count: 1,
       products: [
-        { id: "tc-gauge-01", name: "Precision Grinding Gauges", image: "/images/p17.jfif", specs: ["Country of Origin: Made in India"], description: "Precision grinding gauges for accurate dimensional inspection and quality control in manufacturing." }
+        { id: "tc-gauge-01", name: "Precision Grinding Gauges", image: "/images/p17.jpeg", specs: ["Country of Origin: Made in India"], description: "Precision grinding gauges for accurate dimensional inspection and quality control in manufacturing." }
       ]
     }
   ];
@@ -714,15 +736,27 @@
       }
 
       productGrid.innerHTML = products.map((p, index) => {
-        const imgSrc = getBetterImageUrl(p.image) || 'https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-400x400.jpg';
-        return `<div class="product-item" data-category="${p.categoryId}" data-product-id="${p.id}" style="animation-delay:${index * 0.05}s">
-          <img src="${imgSrc}" alt="${p.name}" loading="lazy" onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-400x400.jpg'">
-          <div class="product-overlay">
-            <span class="badge">${p.categoryName}</span>
-            <h3>${p.name}</h3>
-            <a href="#" class="view-link" data-product-id="${p.id}">View Details <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>`;
+const FALLBACK = 'https://5.imimg.com/data5/SELLER/Default/2024/8/441408889/YL/HB/SH/36451235/tungsten-carbide-dies-400x400.jpg';
+
+// Render image block — grid ONLY for precision-grinding-gauges
+let imageBlock;
+if (p.categoryId === 'precision-grinding-gauges' && p.images && p.images.length === 4) {
+  imageBlock = `<div class="product-image-grid">
+    ${p.images.map((src, i) => `<img src="${getBetterImageUrl(src) || FALLBACK}" alt="${p.name} ${i+1}" loading="lazy" onerror="this.src='${FALLBACK}'">`).join('')}
+  </div>`;
+} else {
+  const imgSrc = getBetterImageUrl(p.image) || FALLBACK;
+  imageBlock = `<img src="${imgSrc}" alt="${p.name}" loading="lazy" onerror="this.src='${FALLBACK}'">`;
+}
+
+return `<div class="product-item" data-category="${p.categoryId}" data-product-id="${p.id}" style="animation-delay:${index * 0.05}s">
+  ${imageBlock}
+  <div class="product-overlay">
+    <span class="badge">${p.categoryName}</span>
+    <h3>${p.name}</h3>
+    <a href="#" class="view-link" data-product-id="${p.id}">View Details <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</div>`;
       }).join('');
 
       document.querySelectorAll('.view-link').forEach(link => {
