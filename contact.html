@@ -141,11 +141,99 @@
       border-radius: 10px;
     }
   }
+
+  /* ===== RESPONSIVE FIXES ===== */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Responsive map embed */
+  .map-embed {
+    width: 100%;
+    height: 450px;
+    display: block;
+    border-radius: 12px;
+  }
+
+  /* ===== CONTACT FORM RESPONSIVE FIX ===== */
+  #contact-form {
+    width: 100%;
+  }
+
+  #contact-form .form-input,
+  #contact-form input,
+  #contact-form select,
+  #contact-form textarea {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px 8px 0 0;
+  }
+
+  #contact-form textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  #contact-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+
+  /* Contact cards grid collapse + spacing on mobile */
+  @media (max-width: 768px) {
+    .stagger-group {
+      margin-top: -60px !important;
+      gap: 1rem !important;
+    }
+
+    .map-embed {
+      height: 320px;
+    }
+
+    #contact-form .grid {
+      grid-template-columns: 1fr !important;
+      gap: 1.25rem !important;
+    }
+
+    #contact-form button[type="submit"] {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .reveal-left h2 {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .map-embed {
+      height: 260px;
+    }
+  }
+
+  /* Tighten the two-column section wrapper on tablet */
+  @media (max-width: 1024px) {
+    .max-w-7xl.grid.lg\:grid-cols-2 {
+      gap: 2.5rem !important;
+    }
+  }
 </style>
 
 <!-- ===== CONTACT CARDS ===== -->
 <section class="py-24 bg-[#faf7f2]">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-4 gap-8 stagger-group -mt-32 relative z-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 stagger-group -mt-32 relative z-10">
 
     <!-- Office Address -->
     <div class="stagger-item card-contact bg-white text-center p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#f0ebe3]">
@@ -189,22 +277,23 @@
 
   </div>
 </section>
+
 <!-- ===== FORM + MAP ===== -->
 <section class="pb-28 bg-[#faf7f2]">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16">
-    <div class="reveal-left">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+    <div class="reveal-left w-full">
       <p class="dim-line mb-5"><span class="dim-num">01</span> Send An Enquiry</p>
-      <h2 class="font-display text-4xl mb-8 text-gray-900">Tell us about your requirement</h2>
+      <h2 class="font-display text-3xl sm:text-4xl mb-8 text-gray-900">Tell us about your requirement</h2>
       <p class="text-sm text-gray-600 mb-6">Share your product requirement, drawing or specification — we'll get back to you with a quote.</p>
       
-      <form id="contact-form" class="space-y-8" onsubmit="sendToWhatsApp(event)">
-        <div class="grid md:grid-cols-2 gap-8">
-          <input id="c-name" type="text" placeholder="Full Name" class="form-input border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-2 text-gray-800 bg-white/80 rounded-t-lg" required>
-          <input id="c-email" type="email" placeholder="Email Address" class="form-input border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-2 text-gray-800 bg-white/80 rounded-t-lg" required>
+      <form id="contact-form" class="space-y-6 md:space-y-8 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+          <input id="c-name" type="text" placeholder="Full Name" class="form-input w-full border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-3 text-gray-800 rounded-t-lg" required>
+          <input id="c-email" type="email" placeholder="Email Address" class="form-input w-full border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-3 text-gray-800 rounded-t-lg" required>
         </div>
-        <div class="grid md:grid-cols-2 gap-8">
-          <input id="c-phone" type="tel" placeholder="Phone Number" class="form-input border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-2 text-gray-800 bg-white/80 rounded-t-lg" required>
-          <select id="c-service" class="form-input border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-2 text-gray-800 bg-white/80 rounded-t-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+          <input id="c-phone" type="tel" placeholder="Phone Number" class="form-input w-full border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-3 text-gray-800 rounded-t-lg" required>
+          <select id="c-service" class="form-input w-full border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-3 text-gray-800 rounded-t-lg">
             <option value="">Select Product Category</option>
             <option value="tungsten-carbide-dies">Tungsten Carbide Dies</option>
             <option value="tungsten-carbide-bush">Tungsten Carbide Bush</option>
@@ -216,19 +305,24 @@
             <option value="custom">Custom Tooling</option>
           </select>
         </div>
-        <textarea id="c-message" rows="5" placeholder="Tell us about your product requirement, quantity, specifications and any drawings you have" class="form-input border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-2 text-gray-800 bg-white/80 rounded-t-lg" required></textarea>
+        <textarea id="c-message" rows="5" placeholder="Tell us about your product requirement, quantity, specifications and any drawings you have" class="form-input w-full border-b-2 border-[#d4c5b2] focus:border-[#1e5fbf] transition-colors duration-300 py-3 px-3 text-gray-800 rounded-t-lg" required></textarea>
         
-        <button type="submit" class="bg-[#1e5fbf] hover:bg-[#1a4f9e] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center gap-3 shadow-lg shadow-[#1e5fbf]/25 hover:shadow-xl hover:shadow-[#1e5fbf]/40">
+        <button type="submit" class="bg-[#1e5fbf] hover:bg-[#1a4f9e] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center gap-3 shadow-lg shadow-[#1e5fbf]/25 hover:shadow-xl hover:shadow-[#1e5fbf]/40 w-full md:w-auto justify-center">
           Send Enquiry <i class="fa-solid fa-paper-plane"></i>
         </button>
         
-        <p id="form-msg" class="mt-4 text-sm"></p>
-        <!-- <p class="text-xs text-gray-500 mt-2">* This form sends your enquiry directly to our WhatsApp. You can also call us at <strong>9096884808</strong> for a faster response.</p> -->
+        <p id="form-msg" class="mt-2 text-sm"></p>
       </form>
     </div>
     
-    <div class="reveal-right dim-corner">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.788704581826!2d73.8352167606354!3d18.628571177149592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b94be6071b25%3A0x61c6ac52876fca19!2sSNEHA%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1789473845460!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <div class="reveal-right dim-corner w-full">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.788704581826!2d73.8352167606354!3d18.628571177149592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b94be6071b25%3A0x61c6ac52876fca19!2sSNEHA%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1789473845460!5m2!1sen!2sin"
+        class="map-embed"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
   </div>
 </section>
@@ -237,55 +331,79 @@
   // WhatsApp number where form submissions will be sent (India country code +91)
   const WHATSAPP_NUMBER = '919096884808';
 
-  function sendToWhatsApp(event) {
-    event.preventDefault(); // Prevent default form submission
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+    const msg = document.getElementById('form-msg');
 
-    // Collect form values
-    const name = document.getElementById('c-name').value.trim();
-    const email = document.getElementById('c-email').value.trim();
-    const phone = document.getElementById('c-phone').value.trim();
-    const serviceSelect = document.getElementById('c-service');
-    const service = serviceSelect.options[serviceSelect.selectedIndex]?.text || 'Not specified';
-    const message = document.getElementById('c-message').value.trim();
-    const msgElement = document.getElementById('form-msg');
+    if (!form) return;
 
-    // Basic validation (HTML required also handles this, but double-check)
-    if (!name || !email || !phone || !message) {
-      msgElement.textContent = 'Please fill in all required fields.';
-      msgElement.className = 'mt-4 text-sm text-red-600';
-      return;
-    }
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-    // Build the WhatsApp message text
-    const whatsappMessage = 
-      `*New Enquiry from Sneha Enterprises Website*%0A%0A` +
-      `*Name:* ${encodeURIComponent(name)}%0A` +
-      `*Email:* ${encodeURIComponent(email)}%0A` +
-      `*Phone:* ${encodeURIComponent(phone)}%0A` +
-      `*Product Category:* ${encodeURIComponent(service)}%0A` +
-      `*Message:* ${encodeURIComponent(message)}`;
+      // Collect form values
+      const name = document.getElementById('c-name').value.trim();
+      const email = document.getElementById('c-email').value.trim();
+      const phone = document.getElementById('c-phone').value.trim();
+      const serviceSelect = document.getElementById('c-service');
+      const service = serviceSelect.options[serviceSelect.selectedIndex]?.text || 'Not specified';
+      const message = document.getElementById('c-message').value.trim();
 
-    // Create the WhatsApp API URL
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+      // Basic validation
+      if (!name || !email || !phone || !message) {
+        msg.style.color = '#E63946';
+        msg.textContent = 'Please fill in all required fields.';
+        return;
+      }
 
-    // Show a confirmation message to the user
-    msgElement.textContent = '✅ Opening WhatsApp with your enquiry...';
-    msgElement.className = 'mt-4 text-sm text-green-600';
+      // Validate email
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        msg.style.color = '#E63946';
+        msg.textContent = 'Please enter a valid email address.';
+        return;
+      }
 
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, '_blank');
+      // Validate phone (basic)
+      const phonePattern = /^[0-9\+\-\s\(\)]{8,20}$/;
+      if (!phonePattern.test(phone)) {
+        msg.style.color = '#E63946';
+        msg.textContent = 'Please enter a valid phone number.';
+        return;
+      }
 
-    // Optionally reset the form after a short delay
-    setTimeout(() => {
-      document.getElementById('contact-form').reset();
-      msgElement.textContent = 'Enquiry sent via WhatsApp. We will respond shortly.';
-      msgElement.className = 'mt-4 text-sm text-green-600';
-    }, 1500);
+      // Build WhatsApp message
+      const whatsappMessage =
+        `*New Enquiry from Sneha Enterprises Website*%0A%0A` +
+        `*Name:* ${encodeURIComponent(name)}%0A` +
+        `*Email:* ${encodeURIComponent(email)}%0A` +
+        `*Phone:* ${encodeURIComponent(phone)}%0A` +
+        `*Product Category:* ${encodeURIComponent(service)}%0A` +
+        `*Message:* ${encodeURIComponent(message)}`;
 
-    // Fallback: If the popup is blocked, you can use:
-    // window.location.href = whatsappUrl;
-  }
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+
+      // Show confirmation
+      msg.style.color = '#2e7d32';
+      msg.textContent = '✅ Opening WhatsApp with your enquiry...';
+
+      // Open WhatsApp
+      window.open(whatsappUrl, '_blank');
+
+      // Reset form after short delay
+      setTimeout(() => {
+        form.reset();
+        msg.style.color = '#2e7d32';
+        msg.textContent = 'Enquiry sent via WhatsApp. We will respond shortly.';
+      }, 1500);
+
+      // Clear the message after 8 seconds
+      setTimeout(() => {
+        msg.textContent = '';
+      }, 8000);
+    });
+  });
 </script>
+
 <!-- ===== FOOTER ===== -->
 <div id="footer-placeholder"></div>
 <script>
@@ -302,60 +420,5 @@
 
 <script src="js/main.js"></script>
 <script src="js/animation.js"></script>
-<script>
-  // ===== CONTACT FORM HANDLING =====
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    const msg = document.getElementById('form-msg');
-
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Get form values
-        const name = document.getElementById('c-name').value.trim();
-        const email = document.getElementById('c-email').value.trim();
-        const phone = document.getElementById('c-phone').value.trim();
-        const service = document.getElementById('c-service').value;
-        const message = document.getElementById('c-message').value.trim();
-
-        // Basic validation
-        if (!name || !email || !phone || !message) {
-          msg.style.color = '#E63946';
-          msg.textContent = 'Please fill in all required fields.';
-          return;
-        }
-
-        // Validate email
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-          msg.style.color = '#E63946';
-          msg.textContent = 'Please enter a valid email address.';
-          return;
-        }
-
-        // Validate phone (basic)
-        const phonePattern = /^[0-9\+\-\s\(\)]{8,20}$/;
-        if (!phonePattern.test(phone)) {
-          msg.style.color = '#E63946';
-          msg.textContent = 'Please enter a valid phone number.';
-          return;
-        }
-
-        // Success message
-        msg.style.color = '#2e7d32';
-        msg.innerHTML = '✅ Thank you for your enquiry! Please call or WhatsApp us at <strong>+91 9096884808</strong> to complete your enquiry. We\'ll get back to you shortly.';
-
-        // Reset form
-        form.reset();
-
-        // Hide success message after 8 seconds
-        setTimeout(() => {
-          msg.textContent = '';
-        }, 8000);
-      });
-    }
-  });
-</script>
 </body>
 </html>
